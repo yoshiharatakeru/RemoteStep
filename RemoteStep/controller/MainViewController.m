@@ -63,7 +63,7 @@
 }
 
 
-//地図の際を更新
+//地図の差異を更新
 - (void)updateDiff{
     
     MKMapPoint p1 = MKMapPointForCoordinate(_mapView1.centerCoordinate);
