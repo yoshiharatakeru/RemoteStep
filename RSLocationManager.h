@@ -15,5 +15,6 @@
 
 - (void)addLocation:(RSLocation*)location;
 - (void)removeLocationAtIndex:(NSInteger)index;
+- (void)removeAllLocations;
 
 @end

@@ -40,6 +40,11 @@
 }
 
 
+- (void)removeAllLocations{
+    
+    [_locations removeAllObjects];
+}
+
 
 
 
