@@ -37,6 +37,9 @@
     //model
     _manager = RSLocationManager.new;
     
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +47,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+//地図の際を更新
 
 
 - (void)tapMap:(UITapGestureRecognizer*)sender{
@@ -78,17 +84,16 @@
 - (void)prepareDrawing{
     
     //描画
-    CLLocationCoordinate2D coords[_manager.locations.count];
+
+    MKMapPoint points[_manager.locations.count];
     
     for (int i=0; i<_manager.locations.count; i++) {
-        
         RSLocation *location = _manager.locations[i];
-
-        coords[i] = location.location.coordinate;
         
+        points[i] = location.mapPoint;
     }
     
-    MKPolyline *line = [MKPolyline polylineWithCoordinates:coords count:_manager.locations.count];
+    MKPolyline *line = [MKPolyline polylineWithPoints:points count:_manager.locations.count];
 
     [_mapView1 addOverlay:line];
     
