@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "RSLocation.h"
+#import "RSLocationManager.h"
 
 @interface MainViewController : UIViewController
 <MKMapViewDelegate>

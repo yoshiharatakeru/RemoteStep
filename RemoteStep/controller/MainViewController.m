@@ -13,7 +13,8 @@
 {
     __weak IBOutlet MKMapView *_mapView1;
     __weak IBOutlet MKMapView *_mapView2;
-    RSLocations *_locations;
+    RSLocationManager *_manager;
+    
 }
 
 @end
@@ -33,8 +34,8 @@
     
     [_mapView1 addGestureRecognizer:ges];
     
-    //locations
-    _locations = [[RSLocations alloc]init];
+    //model
+    _manager = RSLocationManager.new;
     
 }
 
@@ -53,26 +54,44 @@
     CLLocationCoordinate2D coordinate = [_mapView1 convertPoint:point toCoordinateFromView:_mapView1];
     NSLog(@"座標:%f",coordinate.latitude);
     
-    //cllocationで保存
+    //cllocation型
     CLLocation *location = [[CLLocation alloc]initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-    [_locations addLocation:location];
     
+    //MKMapPoint型
+    MKMapPoint mapPoint = MKMapPointForCoordinate(coordinate);
+    NSLog(@"MKMapPoint:%f,%f",mapPoint.x,mapPoint.y);
+    
+    //RSLocation作成
+    RSLocation *new_location = RSLocation.new;
+    [new_location setLocation:location];
+    [new_location setMapPoint:mapPoint];
+    
+    [_manager addLocation:new_location];
+
+    [self prepareDrawing];
+    
+
+
+}
+
+
+- (void)prepareDrawing{
     
     //描画
+    CLLocationCoordinate2D coords[_manager.locations.count];
     
-    CLLocationCoordinate2D coords[_locations.locations.count];
-    for (int i=0; i<_locations.locations.count; i++) {
+    for (int i=0; i<_manager.locations.count; i++) {
         
-        CLLocation *location = _locations.locations[i];
-        coords[i] = location.coordinate;
+        RSLocation *location = _manager.locations[i];
+
+        coords[i] = location.location.coordinate;
         
     }
     
-    MKPolyline *line = [MKPolyline polylineWithCoordinates:coords count:_locations.locations.count];
-    
+    MKPolyline *line = [MKPolyline polylineWithCoordinates:coords count:_manager.locations.count];
+
     [_mapView1 addOverlay:line];
     
-
 }
 
 

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05322D0D1773068D000AA1ED /* RSLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D0C1773068D000AA1ED /* RSLocations.m */; };
+		05322D111773069B000AA1ED /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D101773069B000AA1ED /* MainViewController.m */; };
+		05322D14177306F2000AA1ED /* RSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D13177306F2000AA1ED /* RSLocation.m */; };
+		05322D1717730713000AA1ED /* RSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D1617730713000AA1ED /* RSLocationManager.m */; };
 		05E1281E1769CD140093C097 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E1281D1769CD140093C097 /* UIKit.framework */; };
 		05E128201769CD140093C097 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E1281F1769CD140093C097 /* Foundation.framework */; };
 		05E128221769CD140093C097 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E128211769CD140093C097 /* CoreGraphics.framework */; };
@@ -18,12 +22,18 @@
 		05E128341769CD140093C097 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E128331769CD140093C097 /* Default-568h@2x.png */; };
 		05E128371769CD140093C097 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05E128351769CD140093C097 /* MainStoryboard.storyboard */; };
 		05E128411769CD760093C097 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E128401769CD760093C097 /* MapKit.framework */; };
-		05E128441769CDFF0093C097 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E128431769CDFF0093C097 /* MainViewController.m */; };
-		05E128471769E2730093C097 /* RSLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E128461769E2730093C097 /* RSLocations.m */; };
 		05E128491769E6A30093C097 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E128481769E6A30093C097 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05322D0B1773068D000AA1ED /* RSLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLocations.h; sourceTree = "<group>"; };
+		05322D0C1773068D000AA1ED /* RSLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLocations.m; sourceTree = "<group>"; };
+		05322D0F1773069B000AA1ED /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		05322D101773069B000AA1ED /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		05322D12177306F2000AA1ED /* RSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSLocation.h; path = ../../RSLocation.h; sourceTree = "<group>"; };
+		05322D13177306F2000AA1ED /* RSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSLocation.m; path = ../../RSLocation.m; sourceTree = "<group>"; };
+		05322D1517730713000AA1ED /* RSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSLocationManager.h; path = ../../RSLocationManager.h; sourceTree = "<group>"; };
+		05322D1617730713000AA1ED /* RSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSLocationManager.m; path = ../../RSLocationManager.m; sourceTree = "<group>"; };
 		05E1281A1769CD140093C097 /* RemoteStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E1281D1769CD140093C097 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05E1281F1769CD140093C097 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,10 +49,6 @@
 		05E128331769CD140093C097 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		05E128361769CD140093C097 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		05E128401769CD760093C097 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		05E128421769CDFF0093C097 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		05E128431769CDFF0093C097 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		05E128451769E2730093C097 /* RSLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSLocations.h; path = ../RSLocations.h; sourceTree = "<group>"; };
-		05E128461769E2730093C097 /* RSLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSLocations.m; path = ../RSLocations.m; sourceTree = "<group>"; };
 		05E128481769E6A30093C097 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -62,6 +68,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05322D0A1773068D000AA1ED /* model */ = {
+			isa = PBXGroup;
+			children = (
+				05322D1517730713000AA1ED /* RSLocationManager.h */,
+				05322D1617730713000AA1ED /* RSLocationManager.m */,
+				05322D12177306F2000AA1ED /* RSLocation.h */,
+				05322D13177306F2000AA1ED /* RSLocation.m */,
+				05322D0B1773068D000AA1ED /* RSLocations.h */,
+				05322D0C1773068D000AA1ED /* RSLocations.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		05322D0E1773069B000AA1ED /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				05322D0F1773069B000AA1ED /* MainViewController.h */,
+				05322D101773069B000AA1ED /* MainViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		05E128111769CD140093C097 = {
 			isa = PBXGroup;
 			children = (
@@ -94,14 +122,12 @@
 		05E128231769CD140093C097 /* RemoteStep */ = {
 			isa = PBXGroup;
 			children = (
-				05E128451769E2730093C097 /* RSLocations.h */,
-				05E128461769E2730093C097 /* RSLocations.m */,
+				05322D0E1773069B000AA1ED /* controller */,
+				05322D0A1773068D000AA1ED /* model */,
 				05E1282C1769CD140093C097 /* AppDelegate.h */,
 				05E1282D1769CD140093C097 /* AppDelegate.m */,
 				05E128351769CD140093C097 /* MainStoryboard.storyboard */,
 				05E128241769CD140093C097 /* Supporting Files */,
-				05E128421769CDFF0093C097 /* MainViewController.h */,
-				05E128431769CDFF0093C097 /* MainViewController.m */,
 			);
 			path = RemoteStep;
 			sourceTree = "<group>";
@@ -188,8 +214,10 @@
 			files = (
 				05E1282A1769CD140093C097 /* main.m in Sources */,
 				05E1282E1769CD140093C097 /* AppDelegate.m in Sources */,
-				05E128441769CDFF0093C097 /* MainViewController.m in Sources */,
-				05E128471769E2730093C097 /* RSLocations.m in Sources */,
+				05322D0D1773068D000AA1ED /* RSLocations.m in Sources */,
+				05322D111773069B000AA1ED /* MainViewController.m in Sources */,
+				05322D14177306F2000AA1ED /* RSLocation.m in Sources */,
+				05322D1717730713000AA1ED /* RSLocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +340,7 @@
 				05E1283F1769CD140093C097 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
