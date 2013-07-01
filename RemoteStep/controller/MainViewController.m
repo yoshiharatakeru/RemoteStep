@@ -18,6 +18,8 @@
     float _diff_y;
     __weak IBOutlet UIButton *btClear;
     
+    __weak IBOutlet UIButton *_btDrag;
+    BOOL *_isBtDragging;
     
 }
 
@@ -34,10 +36,16 @@
     _mapView1.delegate = self;
     _mapView2.delegate = self;
     
-    //gesture
+    //tap gesture
     UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapMap:)];
-    
     [_mapView1 addGestureRecognizer:ges];
+    
+    
+    //drag gesture
+    _isBtDragging = NO;
+    UIPanGestureRecognizer *panGes = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(btDragged:)];
+    [self.view addGestureRecognizer:panGes];
+    
     
     //model
     _manager = RSLocationManager.new;
@@ -46,8 +54,11 @@
     //button
     [btClear addTarget:self action:@selector(btClearPressed:) forControlEvents:UIControlEventTouchUpInside];
     
+
+    
     
 }
+
 
 - (void)viewDidAppear:(BOOL)animated{
     
@@ -62,6 +73,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+#pragma mark -
+#pragma mark private method
+
+//地図のサイズを変更
+- (void)btDragged:(UIPanGestureRecognizer*)ges{
+    
+    if (ges.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"begin");
+        CGPoint firstPoint = [ges locationInView:self.view];
+        NSLog(@"%f",firstPoint.x);
+
+    }
+    
+    if (ges.state == UIGestureRecognizerStateEnded) {
+        NSLog(@"ended");
+    }
+    
+    else{
+        
+        NSLog(@"x:%f",[ges locationInView:self.view].x);
+    }
+    
+
+    
+    
+}
 
 //地図の差異を更新
 - (void)updateDiff{

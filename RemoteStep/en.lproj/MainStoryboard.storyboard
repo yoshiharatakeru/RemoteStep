@@ -14,12 +14,12 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vo7-UD-0OR">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="274" id="bhF-AU-cAs"/>
+                                    <constraint firstAttribute="height" constant="274" id="ZbK-El-t9N"/>
                                 </constraints>
                             </mapView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Br3-Z8-lm0">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="274" id="tUt-C0-j6L"/>
+                                    <constraint firstAttribute="height" constant="274" id="VB1-kZ-hPc"/>
                                 </constraints>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpH-nI-m46">
@@ -32,20 +32,36 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmE-nE-wvB">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" type="user" id="hpf-i6-cMx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Br3-Z8-lm0" firstAttribute="leading" secondItem="Ypu-ri-Scf" secondAttribute="leading" type="default" id="3FT-kb-kyS"/>
-                            <constraint firstItem="vo7-UD-0OR" firstAttribute="leading" secondItem="Ypu-ri-Scf" secondAttribute="leading" type="default" id="CCR-5K-24k"/>
-                            <constraint firstItem="WpH-nI-m46" firstAttribute="leading" secondItem="Ypu-ri-Scf" secondAttribute="leading" constant="10" id="VWC-Ba-Wxg"/>
-                            <constraint firstItem="vo7-UD-0OR" firstAttribute="top" secondItem="Ypu-ri-Scf" secondAttribute="top" type="default" id="Xhd-kE-8Ph"/>
-                            <constraint firstItem="vo7-UD-0OR" firstAttribute="trailing" secondItem="Ypu-ri-Scf" secondAttribute="trailing" type="default" id="Xo0-UD-gob"/>
-                            <constraint firstItem="WpH-nI-m46" firstAttribute="top" secondItem="Ypu-ri-Scf" secondAttribute="top" constant="218" id="hZ6-H3-XD8"/>
-                            <constraint firstItem="Br3-Z8-lm0" firstAttribute="trailing" secondItem="Ypu-ri-Scf" secondAttribute="trailing" type="default" id="uRT-iO-w2U"/>
-                            <constraint firstItem="Br3-Z8-lm0" firstAttribute="bottom" secondItem="Ypu-ri-Scf" secondAttribute="bottom" type="default" id="ymQ-ZC-ji6"/>
+                            <constraint firstItem="WpH-nI-m46" firstAttribute="top" secondItem="Ypu-ri-Scf" secondAttribute="top" constant="218" id="26N-yt-E5E"/>
+                            <constraint firstItem="Br3-Z8-lm0" firstAttribute="trailing" secondItem="Ypu-ri-Scf" secondAttribute="trailing" type="default" id="31a-IN-wMS"/>
+                            <constraint firstItem="Br3-Z8-lm0" firstAttribute="bottom" secondItem="Ypu-ri-Scf" secondAttribute="bottom" type="default" id="37X-o1-qIh"/>
+                            <constraint firstItem="vo7-UD-0OR" firstAttribute="leading" secondItem="Ypu-ri-Scf" secondAttribute="leading" type="user" id="3PQ-9o-EAF"/>
+                            <constraint firstItem="jmE-nE-wvB" firstAttribute="top" secondItem="Ypu-ri-Scf" secondAttribute="top" constant="252" id="7Xz-1u-ixH"/>
+                            <constraint firstItem="Br3-Z8-lm0" firstAttribute="leading" secondItem="Ypu-ri-Scf" secondAttribute="leading" type="default" id="GS3-rW-oG4"/>
+                            <constraint firstItem="vo7-UD-0OR" firstAttribute="top" secondItem="Ypu-ri-Scf" secondAttribute="top" type="user" id="GvT-yP-X8N"/>
+                            <constraint firstItem="WpH-nI-m46" firstAttribute="leading" secondItem="Ypu-ri-Scf" secondAttribute="leading" constant="10" id="X4E-wE-0d9"/>
+                            <constraint firstItem="jmE-nE-wvB" firstAttribute="trailing" secondItem="Ypu-ri-Scf" secondAttribute="trailing" type="default" id="zO5-sQ-mfg"/>
+                            <constraint firstItem="vo7-UD-0OR" firstAttribute="trailing" secondItem="Ypu-ri-Scf" secondAttribute="trailing" type="default" id="zsk-i4-WOY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="_btDrag" destination="jmE-nE-wvB" id="HSi-eP-qOz"/>
                         <outlet property="_mapView1" destination="vo7-UD-0OR" id="oum-Xh-O5g"/>
                         <outlet property="_mapView2" destination="Br3-Z8-lm0" id="YGI-pL-hPd"/>
                         <outlet property="btClear" destination="WpH-nI-m46" id="ENs-Dd-u2f"/>
@@ -53,9 +69,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHr-Oi-KN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="362" y="104"/>
+            <point key="canvasLocation" x="308" y="106"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_btDrag" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_mapView1" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="_mapView2" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="btClear" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
