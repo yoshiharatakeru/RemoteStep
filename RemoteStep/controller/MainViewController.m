@@ -19,7 +19,12 @@
     __weak IBOutlet UIButton *btClear;
     
     __weak IBOutlet UIButton *_btDrag;
-    BOOL *_isBtDragging;
+    BOOL _isBtDragging;
+    
+    //constraint
+    __weak IBOutlet NSLayoutConstraint *_slider_topSpace;
+    float _first_slider_topSpce;
+    __weak IBOutlet NSLayoutConstraint *_map1_height;
     
 }
 
@@ -45,6 +50,7 @@
     _isBtDragging = NO;
     UIPanGestureRecognizer *panGes = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(btDragged:)];
     [self.view addGestureRecognizer:panGes];
+    _isBtDragging = NO;
     
     
     //model
@@ -53,6 +59,7 @@
     
     //button
     [btClear addTarget:self action:@selector(btClearPressed:) forControlEvents:UIControlEventTouchUpInside];
+
     
 
     
@@ -83,18 +90,43 @@
     
     if (ges.state == UIGestureRecognizerStateBegan) {
         NSLog(@"begin");
-        CGPoint firstPoint = [ges locationInView:self.view];
-        NSLog(@"%f",firstPoint.x);
+        _first_slider_topSpce = _slider_topSpace.constant;
+        _isBtDragging = YES;
 
     }
     
     if (ges.state == UIGestureRecognizerStateEnded) {
-        NSLog(@"ended");
+        
+        if (!_isBtDragging) {
+            return;
+        }
+        
+        //mapの移動
+        _map1_height.constant = _btDrag.center.y;
+        
+        _isBtDragging = NO;
     }
+    
     
     else{
         
-        NSLog(@"x:%f",[ges locationInView:self.view].x);
+        CGPoint translation = [ges translationInView:self.view];
+        CGPoint location    = [ges locationInView:self.view];
+        
+        if (!_isBtDragging) {
+            return;
+        }
+        
+        if (location.y < _btDrag.bounds.size.height/2 || location.y > self.view.bounds.size.height - _btDrag.bounds.size.height/2) {
+            return;
+        }
+
+        
+        //スライダ移動
+        _slider_topSpace.constant = _first_slider_topSpce + translation.y;
+           
+        [self.view layoutIfNeeded];
+        
     }
     
 

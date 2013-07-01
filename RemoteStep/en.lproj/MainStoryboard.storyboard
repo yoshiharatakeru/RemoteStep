@@ -14,14 +14,10 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vo7-UD-0OR">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="274" id="ZbK-El-t9N"/>
+                                    <constraint firstAttribute="height" constant="274" type="user" id="HFt-g9-nSC"/>
                                 </constraints>
                             </mapView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Br3-Z8-lm0">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="274" id="VB1-kZ-hPc"/>
-                                </constraints>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Br3-Z8-lm0"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpH-nI-m46">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="clear">
@@ -50,20 +46,23 @@
                         <constraints>
                             <constraint firstItem="WpH-nI-m46" firstAttribute="top" secondItem="Ypu-ri-Scf" secondAttribute="top" constant="218" id="26N-yt-E5E"/>
                             <constraint firstItem="Br3-Z8-lm0" firstAttribute="trailing" secondItem="Ypu-ri-Scf" secondAttribute="trailing" type="default" id="31a-IN-wMS"/>
-                            <constraint firstItem="Br3-Z8-lm0" firstAttribute="bottom" secondItem="Ypu-ri-Scf" secondAttribute="bottom" type="default" id="37X-o1-qIh"/>
+                            <constraint firstItem="Br3-Z8-lm0" firstAttribute="bottom" secondItem="Ypu-ri-Scf" secondAttribute="bottom" type="user" id="37X-o1-qIh"/>
                             <constraint firstItem="vo7-UD-0OR" firstAttribute="leading" secondItem="Ypu-ri-Scf" secondAttribute="leading" type="user" id="3PQ-9o-EAF"/>
-                            <constraint firstItem="jmE-nE-wvB" firstAttribute="top" secondItem="Ypu-ri-Scf" secondAttribute="top" constant="252" id="7Xz-1u-ixH"/>
+                            <constraint firstItem="jmE-nE-wvB" firstAttribute="top" secondItem="Ypu-ri-Scf" secondAttribute="top" constant="252" type="user" id="7Xz-1u-ixH"/>
                             <constraint firstItem="Br3-Z8-lm0" firstAttribute="leading" secondItem="Ypu-ri-Scf" secondAttribute="leading" type="default" id="GS3-rW-oG4"/>
                             <constraint firstItem="vo7-UD-0OR" firstAttribute="top" secondItem="Ypu-ri-Scf" secondAttribute="top" type="user" id="GvT-yP-X8N"/>
                             <constraint firstItem="WpH-nI-m46" firstAttribute="leading" secondItem="Ypu-ri-Scf" secondAttribute="leading" constant="10" id="X4E-wE-0d9"/>
+                            <constraint firstItem="Br3-Z8-lm0" firstAttribute="top" secondItem="vo7-UD-0OR" secondAttribute="bottom" type="user" id="x0a-A7-f5E"/>
                             <constraint firstItem="jmE-nE-wvB" firstAttribute="trailing" secondItem="Ypu-ri-Scf" secondAttribute="trailing" type="default" id="zO5-sQ-mfg"/>
                             <constraint firstItem="vo7-UD-0OR" firstAttribute="trailing" secondItem="Ypu-ri-Scf" secondAttribute="trailing" type="default" id="zsk-i4-WOY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="_btDrag" destination="jmE-nE-wvB" id="HSi-eP-qOz"/>
+                        <outlet property="_map1_height" destination="HFt-g9-nSC" id="obE-xD-Vfg"/>
                         <outlet property="_mapView1" destination="vo7-UD-0OR" id="oum-Xh-O5g"/>
                         <outlet property="_mapView2" destination="Br3-Z8-lm0" id="YGI-pL-hPd"/>
+                        <outlet property="_slider_topSpace" destination="7Xz-1u-ixH" id="XuY-Xd-qGk"/>
                         <outlet property="btClear" destination="WpH-nI-m46" id="ENs-Dd-u2f"/>
                     </connections>
                 </viewController>
@@ -72,20 +71,6 @@
             <point key="canvasLocation" x="308" y="106"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_btDrag" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="_mapView1" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="_mapView2" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="btClear" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
