@@ -13,6 +13,6 @@
 #import "RSLocationManager.h"
 
 @interface MainViewController : UIViewController
-<MKMapViewDelegate>
+<MKMapViewDelegate,UISearchBarDelegate>
 
 @end

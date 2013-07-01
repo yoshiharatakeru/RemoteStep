@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "RSLocations.h"
+enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 
 @interface MainViewController ()
 {
@@ -17,9 +18,11 @@
     float _diff_x;
     float _diff_y;
     __weak IBOutlet UIButton *btClear;
-    
     __weak IBOutlet UIButton *_btDrag;
     BOOL _isBtDragging;
+    __weak IBOutlet UISearchBar *_searchBar;
+    
+    enum mapMode _mapMode;
     
     //constraint
     __weak IBOutlet NSLayoutConstraint *_slider_topSpace;
@@ -59,9 +62,9 @@
     
     //button
     [btClear addTarget:self action:@selector(btClearPressed:) forControlEvents:UIControlEventTouchUpInside];
-
     
-
+    //search bar
+    _searchBar.delegate =self;
     
     
 }
@@ -232,5 +235,65 @@
     [_mapView2 removeOverlays:_mapView2.overlays];
     
 }
+- (IBAction)searchBt1Pressed:(id)sender {
+    
+    _mapMode = MAP_MODE_1;
+    [_searchBar becomeFirstResponder];
+
+}
+
+
+
+- (IBAction)searchBt2Pressed:(id)sender {
+    
+    _mapMode = MAP_MODE_2;
+    [_searchBar becomeFirstResponder];
+}
+
+
+#pragma mark -
+#pragma mark search bar delegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    [self.view endEditing:YES];
+    
+    //場所を検索
+    //正ジオコーディングで場所の検索
+    CLGeocoder *geocoder = [[CLGeocoder alloc]init];
+    
+    [geocoder geocodeAddressString:searchBar.text completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        if (error) {
+            NSLog(@"geocoder error:%@",error.localizedDescription);
+        }
+        
+        if (placemarks.count >0){
+            
+            NSLog(@"num of places :%d",placemarks.count);
+            
+            CLPlacemark *placemark;
+            placemark = [placemarks objectAtIndex:0];
+            CLLocation *location = placemark.location;
+            
+            //マップの位置を変更
+            if (_mapMode == MAP_MODE_1) {
+                [_mapView1 setRegion:MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.02, 0.02))];
+
+            }else{
+                [_mapView2 setRegion:MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.02, 0.02))];
+            }
+        
+        }else{
+            NSString *message = @"結果がありません";
+            UIAlertView *al = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            [al show];
+        }
+        
+    }];
+    
+}
+
+
 
 @end
