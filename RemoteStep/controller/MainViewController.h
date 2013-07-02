@@ -11,8 +11,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import "RSLocation.h"
 #import "RSLocationManager.h"
+#import "ListViewController.h"
 
 @interface MainViewController : UIViewController
-<MKMapViewDelegate,UISearchBarDelegate>
+<MKMapViewDelegate,UISearchBarDelegate,ListViewControllerDelegate>
 
 @end

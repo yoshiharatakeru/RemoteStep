@@ -29,6 +29,7 @@
 		05E641EA1782E57700080AE6 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E641E31782E57700080AE6 /* FMDatabaseQueue.m */; };
 		05E641EC1782E57700080AE6 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E641E61782E57700080AE6 /* FMResultSet.m */; };
 		05E641EE1782E60E00080AE6 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E641ED1782E60E00080AE6 /* libsqlite3.0.dylib */; };
+		05E641F11782FCC000080AE6 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E641F01782FCC000080AE6 /* ListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		05E641E51782E57700080AE6 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		05E641E61782E57700080AE6 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		05E641ED1782E60E00080AE6 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		05E641EF1782FCC000080AE6 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewController.h; path = ../../ListViewController.h; sourceTree = "<group>"; };
+		05E641F01782FCC000080AE6 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewController.m; path = ../../ListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,8 @@
 		05322D0E1773069B000AA1ED /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				05E641EF1782FCC000080AE6 /* ListViewController.h */,
+				05E641F01782FCC000080AE6 /* ListViewController.m */,
 				05322D0F1773069B000AA1ED /* MainViewController.h */,
 				05322D101773069B000AA1ED /* MainViewController.m */,
 			);
@@ -260,6 +265,7 @@
 				05E641E91782E57700080AE6 /* FMDatabasePool.m in Sources */,
 				05E641EA1782E57700080AE6 /* FMDatabaseQueue.m in Sources */,
 				05E641EC1782E57700080AE6 /* FMResultSet.m in Sources */,
+				05E641F11782FCC000080AE6 /* ListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
