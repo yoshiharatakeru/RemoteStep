@@ -29,6 +29,7 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
     float _first_slider_topSpce;
     __weak IBOutlet NSLayoutConstraint *_map1_height;
     
+    __weak IBOutlet NSLayoutConstraint *_searchBar_topSpace;
 }
 
 @end
@@ -65,6 +66,9 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
     
     //search bar
     _searchBar.delegate =self;
+    NSLog(@"bounds.height:%f",_searchBar.bounds.size.height);
+    _searchBar_topSpace.constant = -44;
+    _searchBar.showsCancelButton = YES;
     
     
 }
@@ -215,6 +219,10 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 }
 
 
+#pragma mark -
+#pragma mark mapview delegate
+
+
 - (MKOverlayView*)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay{
     
     MKPolylineView *view = [[MKPolylineView alloc]initWithOverlay:overlay];
@@ -230,6 +238,7 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 
 - (void)btClearPressed:(UIButton*)bt{
     
+    
     [_manager removeAllLocations];
     [_mapView1 removeOverlays:_mapView1.overlays];
     [_mapView2 removeOverlays:_mapView2.overlays];
@@ -237,6 +246,7 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 }
 - (IBAction)searchBt1Pressed:(id)sender {
     
+    _searchBar_topSpace.constant = 0;
     _mapMode = MAP_MODE_1;
     [_searchBar becomeFirstResponder];
 
@@ -246,6 +256,7 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 
 - (IBAction)searchBt2Pressed:(id)sender {
     
+    _searchBar_topSpace.constant = 0;
     _mapMode = MAP_MODE_2;
     [_searchBar becomeFirstResponder];
 }
@@ -253,9 +264,17 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 
 #pragma mark -
 #pragma mark search bar delegate
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self.view endEditing:YES];
+    _searchBar_topSpace.constant = -44;
+    
+}
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
     [self.view endEditing:YES];
+    _searchBar_topSpace.constant = -44;
     
     //場所を検索
     //正ジオコーディングで場所の検索
