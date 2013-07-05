@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0512A3F11786DA1B00CBFFC7 /* RSSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512A3F01786DA1B00CBFFC7 /* RSSpot.m */; };
+		0525257F178303B9001485A8 /* RSDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0525257E178303B9001485A8 /* RSDBClient.m */; };
 		05322D0D1773068D000AA1ED /* RSLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D0C1773068D000AA1ED /* RSLocations.m */; };
 		05322D111773069B000AA1ED /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D101773069B000AA1ED /* MainViewController.m */; };
 		05322D14177306F2000AA1ED /* RSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D13177306F2000AA1ED /* RSLocation.m */; };
@@ -33,6 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0512A3EF1786DA1B00CBFFC7 /* RSSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSpot.h; sourceTree = "<group>"; };
+		0512A3F01786DA1B00CBFFC7 /* RSSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSpot.m; sourceTree = "<group>"; };
+		0525257D178303B9001485A8 /* RSDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDBClient.h; sourceTree = "<group>"; };
+		0525257E178303B9001485A8 /* RSDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDBClient.m; sourceTree = "<group>"; };
 		05322D0B1773068D000AA1ED /* RSLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLocations.h; sourceTree = "<group>"; };
 		05322D0C1773068D000AA1ED /* RSLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSLocations.m; sourceTree = "<group>"; };
 		05322D0F1773069B000AA1ED /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -98,6 +104,10 @@
 				05322D13177306F2000AA1ED /* RSLocation.m */,
 				05322D0B1773068D000AA1ED /* RSLocations.h */,
 				05322D0C1773068D000AA1ED /* RSLocations.m */,
+				0525257D178303B9001485A8 /* RSDBClient.h */,
+				0525257E178303B9001485A8 /* RSDBClient.m */,
+				0512A3EF1786DA1B00CBFFC7 /* RSSpot.h */,
+				0512A3F01786DA1B00CBFFC7 /* RSSpot.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -266,6 +276,8 @@
 				05E641EA1782E57700080AE6 /* FMDatabaseQueue.m in Sources */,
 				05E641EC1782E57700080AE6 /* FMResultSet.m in Sources */,
 				05E641F11782FCC000080AE6 /* ListViewController.m in Sources */,
+				0525257F178303B9001485A8 /* RSDBClient.m in Sources */,
+				0512A3F11786DA1B00CBFFC7 /* RSSpot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
