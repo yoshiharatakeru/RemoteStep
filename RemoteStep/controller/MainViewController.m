@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "RSLocations.h"
+#import "RSButton.h"
 enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 
 @interface MainViewController ()
@@ -77,6 +78,8 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 - (void)viewDidAppear:(BOOL)animated{
     
     [self updateDiff];
+    
+
     
 }
 
@@ -225,6 +228,24 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 }
 
 
+- (void)ListViewController:(ListViewController*)sender didSelectSpot:(RSSpot *)spot{
+    
+    [sender dismissViewControllerAnimated:YES completion:nil];
+    
+    MKMapView *mapView = (sender.map_num == 1)? _mapView1 : _mapView2;
+    
+    //map更新
+    MKCoordinateRegion region = mapView.region;
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake([spot.latitude floatValue], [spot.longitude floatValue]);
+    
+    region.center = center;
+    region.span = MKCoordinateSpanMake(spot.span.floatValue, spot.span.floatValue);
+    [mapView setRegion:region];
+    
+    
+    
+}
+
 #pragma mark -
 #pragma mark mapview delegate
 
@@ -240,28 +261,36 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 
 #pragma mark -
 #pragma mark button action
-- (IBAction)listBtPressed:(id)sender {
+- (IBAction)listBtPressed:(UIButton*)bt {
+    
+    MKMapView *mapView;
+    
+    mapView = (bt.tag == 1)? _mapView1 : _mapView2;
     
     //現在の表示場所を取得
     RSSpot *currentSpot = RSSpot.new;
-    NSString *lat, *lng, *point_x, *point_y;
+    NSString *lat, *lng, *point_x, *point_y, *span;
     
-    lat = [NSString stringWithFormat:@"%f",_mapView1.centerCoordinate.latitude];
-    lng = [NSString stringWithFormat:@"%f",_mapView1.centerCoordinate.longitude];
+    lat = [NSString stringWithFormat:@"%f",mapView.centerCoordinate.latitude];
+    lng = [NSString stringWithFormat:@"%f",mapView.centerCoordinate.longitude];
     
     MKMapPoint p = MKMapPointForCoordinate(_mapView1.centerCoordinate);
     point_x = [NSString stringWithFormat:@"%f",p.x];
     point_y = [NSString stringWithFormat:@"%f",p.y];
     
+    span = [NSString stringWithFormat:@"%f",mapView.region.span.latitudeDelta];
+    
     currentSpot.latitude  = lat;
     currentSpot.longitude = lng;
     currentSpot.point_x   = point_x;
-    currentSpot.point_y   =  point_y;
+    currentSpot.point_y   = point_y;
+    currentSpot.span      = span;
     
     
     //リスト開く
     ListViewController *listCon = [self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
     listCon.delegate = self;
+    listCon.map_num  = bt.tag;
     listCon.currentSpot = currentSpot;
     
     [self presentViewController:listCon animated:YES completion:nil];

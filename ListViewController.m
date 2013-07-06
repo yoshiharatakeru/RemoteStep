@@ -126,6 +126,14 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    [_delegate ListViewController:self didSelectSpot:_spotManager.spots[indexPath.row]];
+    
+    
+}
+
 #pragma mark -
 #pragma mark button action
 

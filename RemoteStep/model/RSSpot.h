@@ -16,5 +16,6 @@
 @property(nonatomic,strong) NSString *longitude;
 @property(nonatomic,strong) NSString *point_x;
 @property(nonatomic,strong) NSString *point_y;
+@property(nonatomic,strong) NSString *span;
 
 @end

@@ -70,11 +70,22 @@ static RSDBClient *_sharedClient = nil;
 }
 
 
+- (void)deleteTable{
+   
+    FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
+   NSString *sql = @"DROP TABLE spots;";
+    [db open];
+    [db executeUpdate:sql];
+    [db close];
+    
+    
+}
+
 //テーブル作成
 - (void)createTable{
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"CREATE TABLE IF NOT EXISTS spots (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, latitude TEXT, longitude TEXT, x TEXT, y TEXT)";
+    NSString *sql = @"CREATE TABLE IF NOT EXISTS spots (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, latitude TEXT, longitude TEXT, x TEXT, y TEXT, span TEXT)";
     
     [db open];
     [db executeUpdate:sql];
@@ -90,10 +101,10 @@ static RSDBClient *_sharedClient = nil;
     
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"INSERT INTO spots(name, latitude, longitude, x, y) VALUES(?,?,?,?,?)";
+    NSString *sql = @"INSERT INTO spots(name, latitude, longitude, x, y, span) VALUES(?,?,?,?,?,?)";
     
     [db open];
-    [db executeUpdate:sql, spot.name, spot.latitude, spot.longitude, spot.point_x, spot.point_y];
+    [db executeUpdate:sql, spot.name, spot.latitude, spot.longitude, spot.point_x, spot.point_y, spot.span];
     [db close];
 
 }
@@ -133,6 +144,7 @@ static RSDBClient *_sharedClient = nil;
         [spot setLongitude:[results stringForColumn:@"longitude"]];
         [spot setPoint_x:[results stringForColumn:@"x"]];
         [spot setPoint_y:[results stringForColumn:@"y"]];
+        [spot setSpan:[results stringForColumn:@"span"]];
         
         [array addObject:spot];
         

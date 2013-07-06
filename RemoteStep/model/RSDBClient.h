@@ -15,10 +15,12 @@
 
 + (RSDBClient*)sharedInstance;
 - (void)createTable;
+- (void)deleteTable;
 - (void)createDBFile;
 - (void)insertSpot:(RSSpot*)spot;
 - (void)deleteSpot:(RSSpot*)spot;
 - (NSMutableArray*)selectAllSpots;
+
 
 
 

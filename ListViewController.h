@@ -17,6 +17,7 @@
 
 @property (nonatomic,weak) id delegate;
 @property (nonatomic,strong) RSSpot *currentSpot;
+@property NSInteger map_num;
 
 @end
 
@@ -24,5 +25,6 @@
 @protocol ListViewControllerDelegate <NSObject>
 
 - (void)ListViewControllerDidCancelEditing:(id)sender;
+- (void)ListViewController:(id)sender didSelectSpot:(RSSpot*)spot;
 
 @end
