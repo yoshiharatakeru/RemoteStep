@@ -146,9 +146,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GUP-Cz-Vdd">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="504" id="esi-GW-cEs"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell0" rowHeight="100" id="yPr-jX-bzX">
                                         <rect key="frame" x="0.0" y="22" width="320" height="100"/>
@@ -241,7 +238,8 @@
                             <constraint firstItem="Lhh-n7-K12" firstAttribute="trailing" secondItem="crn-9u-u9d" secondAttribute="trailing" type="default" id="Vkl-AC-OZS"/>
                             <constraint firstItem="GcP-z0-AYE" firstAttribute="leading" secondItem="crn-9u-u9d" secondAttribute="leading" type="default" id="ayg-ie-rpc"/>
                             <constraint firstItem="72y-di-mAa" firstAttribute="top" secondItem="crn-9u-u9d" secondAttribute="top" type="default" id="cT6-Zf-mWB"/>
-                            <constraint firstItem="GUP-Cz-Vdd" firstAttribute="bottom" secondItem="crn-9u-u9d" secondAttribute="bottom" type="default" id="tON-mw-J9F"/>
+                            <constraint firstItem="GUP-Cz-Vdd" firstAttribute="top" secondItem="crn-9u-u9d" secondAttribute="top" constant="44" type="user" id="sjp-Ty-yxq"/>
+                            <constraint firstItem="GUP-Cz-Vdd" firstAttribute="bottom" secondItem="crn-9u-u9d" secondAttribute="bottom" type="user" id="tON-mw-J9F"/>
                             <constraint firstItem="GUP-Cz-Vdd" firstAttribute="leading" secondItem="crn-9u-u9d" secondAttribute="leading" type="default" id="xul-Yo-bPn"/>
                         </constraints>
                     </view>

@@ -42,6 +42,7 @@
     
     //保存内容取得
     _spotManager = [RSSpotManager sharedManager];
+    [_spotManager removeAllSpots];
     RSDBClient *client = [RSDBClient sharedInstance];
     NSMutableArray *spots = (NSMutableArray*)[client selectAllSpots];
     _spotManager.spots = [spots mutableCopy];
@@ -143,6 +144,7 @@
 
 
 - (void)removeSpot:(RSButton*)bt{
+
     
     RSDBClient *client = [RSDBClient sharedInstance];
     
@@ -150,15 +152,18 @@
     [client deleteSpot:_spotManager.spots[bt.indexPath.row]];
     
     //テーブルから消去
-    [_spotManager removeSpot:_spotManager.spots[bt.indexPath.row]];
+    [_spotManager removeSpotAtIndex:bt.indexPath.row];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:bt.indexPath.row inSection:0];
+    NSLog(@"indexpath.row:%d",bt.indexPath.row);
+    NSLog(@"cout:%d",_spotManager.spots.count);
+    NSLog(@"numberofcells:%d",[_tableView numberOfRowsInSection:0]);
     [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
     
-    //テーブルの更新
-    NSArray *cells = [_tableView visibleCells];
-    for (UITableViewCell *cell in cells) {
-        NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
+    //テーブル更新
+    for (int i = 0; i < _spotManager.spots.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
         [self updateCell:cell atIndexPath:indexPath];
     }
     
@@ -207,9 +212,31 @@
     [_currentSpot setName:textField.text];
     
     //保存
+    //DB
     RSDBClient *client = [RSDBClient sharedInstance];
     [client createTable];
     [client insertSpot:_currentSpot];
+    
+    //table
+    [_spotManager addSpot:_currentSpot];
+    
+    int index;
+    if (_spotManager.spots.count == 1 || _spotManager.spots.count == 2) {
+        index = _spotManager.spots.count -  1;
+    }else{
+        index = _spotManager.spots.count - 1;
+    }
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+
+     
+    //テーブル更新
+    for (int i = 0; i < _spotManager.spots.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+        [self updateCell:cell atIndexPath:indexPath];
+    }
     
      
 }

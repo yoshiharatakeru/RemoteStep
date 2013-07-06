@@ -55,20 +55,11 @@ static RSSpotManager *_sharedManager = nil;
 }
 
 
--(void)removeSpot:(RSSpot*)spot{
+-(void)removeSpotAtIndex:(int)index{
     
-    if (!spot) {
-        return;
-    }
-    
-    for (RSSpot *sp in [_spots reverseObjectEnumerator]) {
-        
-        if ([sp.identifier isEqualToString:spot.identifier]) {
-           
-            [_spots removeObject:sp];
-        
-        }
-    }
+    NSLog(@"remove index:%d",index);
+
+    [_spots removeObjectAtIndex:index];
 }
 
 

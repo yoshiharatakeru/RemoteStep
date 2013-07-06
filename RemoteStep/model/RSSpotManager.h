@@ -15,7 +15,7 @@
 
 + (RSSpotManager*)sharedManager;
 - (void)addSpot:(RSSpot*)spot;
-- (void)removeSpot:(RSSpot*)spot;
+- (void)removeSpotAtIndex:(int)index;
 - (void)removeAllSpots;
 
 
