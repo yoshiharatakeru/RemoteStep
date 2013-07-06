@@ -12,6 +12,7 @@
 #import "RSLocation.h"
 #import "RSLocationManager.h"
 #import "ListViewController.h"
+#import "RSSpot.h"
 
 @interface MainViewController : UIViewController
 <MKMapViewDelegate,UISearchBarDelegate,ListViewControllerDelegate>

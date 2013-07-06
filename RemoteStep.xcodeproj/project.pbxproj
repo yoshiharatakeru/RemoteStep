@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0512A3F11786DA1B00CBFFC7 /* RSSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512A3F01786DA1B00CBFFC7 /* RSSpot.m */; };
+		0512A3F41787FA6700CBFFC7 /* RSSpotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512A3F31787FA6600CBFFC7 /* RSSpotManager.m */; };
+		0512A3F81788024F00CBFFC7 /* RSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512A3F71788024F00CBFFC7 /* RSButton.m */; };
 		0525257F178303B9001485A8 /* RSDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0525257E178303B9001485A8 /* RSDBClient.m */; };
 		05322D0D1773068D000AA1ED /* RSLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D0C1773068D000AA1ED /* RSLocations.m */; };
 		05322D111773069B000AA1ED /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D101773069B000AA1ED /* MainViewController.m */; };
@@ -37,6 +39,10 @@
 /* Begin PBXFileReference section */
 		0512A3EF1786DA1B00CBFFC7 /* RSSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSpot.h; sourceTree = "<group>"; };
 		0512A3F01786DA1B00CBFFC7 /* RSSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSpot.m; sourceTree = "<group>"; };
+		0512A3F21787FA6600CBFFC7 /* RSSpotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSpotManager.h; sourceTree = "<group>"; };
+		0512A3F31787FA6600CBFFC7 /* RSSpotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSpotManager.m; sourceTree = "<group>"; };
+		0512A3F61788024F00CBFFC7 /* RSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSButton.h; sourceTree = "<group>"; };
+		0512A3F71788024F00CBFFC7 /* RSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSButton.m; sourceTree = "<group>"; };
 		0525257D178303B9001485A8 /* RSDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDBClient.h; sourceTree = "<group>"; };
 		0525257E178303B9001485A8 /* RSDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDBClient.m; sourceTree = "<group>"; };
 		05322D0B1773068D000AA1ED /* RSLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLocations.h; sourceTree = "<group>"; };
@@ -95,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0512A3F51788023B00CBFFC7 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				0512A3F61788024F00CBFFC7 /* RSButton.h */,
+				0512A3F71788024F00CBFFC7 /* RSButton.m */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
 		05322D0A1773068D000AA1ED /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +123,8 @@
 				0525257E178303B9001485A8 /* RSDBClient.m */,
 				0512A3EF1786DA1B00CBFFC7 /* RSSpot.h */,
 				0512A3F01786DA1B00CBFFC7 /* RSSpot.m */,
+				0512A3F21787FA6600CBFFC7 /* RSSpotManager.h */,
+				0512A3F31787FA6600CBFFC7 /* RSSpotManager.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -157,6 +174,7 @@
 		05E128231769CD140093C097 /* RemoteStep */ = {
 			isa = PBXGroup;
 			children = (
+				0512A3F51788023B00CBFFC7 /* other */,
 				05322D0E1773069B000AA1ED /* controller */,
 				05322D0A1773068D000AA1ED /* model */,
 				05E1282C1769CD140093C097 /* AppDelegate.h */,
@@ -278,6 +296,8 @@
 				05E641F11782FCC000080AE6 /* ListViewController.m in Sources */,
 				0525257F178303B9001485A8 /* RSDBClient.m in Sources */,
 				0512A3F11786DA1B00CBFFC7 /* RSSpot.m in Sources */,
+				0512A3F41787FA6700CBFFC7 /* RSSpotManager.m in Sources */,
+				0512A3F81788024F00CBFFC7 /* RSButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

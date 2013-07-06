@@ -9,11 +9,14 @@
 @protocol ListViewControllerDelegate;
 
 #import <UIKit/UIKit.h>
+#import "RSSpot.h"
+#import <MapKit/MapKit.h>
 
 @interface ListViewController : UIViewController
-<UITableViewDataSource, UITableViewDelegate>
+<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic,weak) id delegate;
+@property (nonatomic,strong) RSSpot *currentSpot;
 
 @end
 

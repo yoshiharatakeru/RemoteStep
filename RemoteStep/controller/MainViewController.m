@@ -77,7 +77,6 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 - (void)viewDidAppear:(BOOL)animated{
     
     [self updateDiff];
-    [self testSQLite];
     
 }
 
@@ -136,11 +135,10 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
         [self.view layoutIfNeeded];
         
     }
-    
-
-    
+     
     
 }
+
 
 //地図の差異を更新
 - (void)updateDiff{
@@ -244,11 +242,30 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 #pragma mark button action
 - (IBAction)listBtPressed:(id)sender {
     
+    //現在の表示場所を取得
+    RSSpot *currentSpot = RSSpot.new;
+    NSString *lat, *lng, *point_x, *point_y;
+    
+    lat = [NSString stringWithFormat:@"%f",_mapView1.centerCoordinate.latitude];
+    lng = [NSString stringWithFormat:@"%f",_mapView1.centerCoordinate.longitude];
+    
+    MKMapPoint p = MKMapPointForCoordinate(_mapView1.centerCoordinate);
+    point_x = [NSString stringWithFormat:@"%f",p.x];
+    point_y = [NSString stringWithFormat:@"%f",p.y];
+    
+    currentSpot.latitude  = lat;
+    currentSpot.longitude = lng;
+    currentSpot.point_x   = point_x;
+    currentSpot.point_y   =  point_y;
+    
+    
+    //リスト開く
     ListViewController *listCon = [self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
     listCon.delegate = self;
+    listCon.currentSpot = currentSpot;
+    
     [self presentViewController:listCon animated:YES completion:nil];
     
-
 
 }
 
@@ -329,51 +346,6 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
     
 }
 
-- (void)testSQLite{
-    NSLog(@"testSQLite");
-    
-    
-    //db作成
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = paths[0];
-    NSString *dbPath = [path stringByAppendingPathComponent:@"database.db"];
-    NSLog(@"path:%@",dbPath);
-    
-    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
-
-    
-    //確認
-    NSFileManager *manager = [NSFileManager defaultManager];
-    
-    NSArray *files = [manager contentsOfDirectoryAtPath:path error:nil];
-    NSLog(@"files:%@",files.description);
-    
-    //テーブル作成
-    FMDatabase *db1 = [FMDatabase databaseWithPath:dbPath];
-    NSString *sql_create_table = @"CREATE TABLE IF NOT EXISTS tablename (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);";
-    [db1 open];
-    [db1 executeUpdate:sql_create_table];
-    [db1 close];
-    
-    //データ挿入
-    FMDatabase *db2 = [FMDatabase databaseWithPath:dbPath];
-    NSString *sql_insert = @"INSERT INTO tablename(name) VALUES(?)";
-    
-    [db2 open];
-    [db2 executeUpdate:sql_insert, @"takeru"];
-    [db2 close];
-    
-    //データ取得
-    FMDatabase *db3 = [FMDatabase databaseWithPath:dbPath];
-    NSString *sql_get = @"SELECT id, name FROM tablename;";
-    [db3 open];
-    FMResultSet *results = [db3 executeQuery:sql_get];
-    while ([results next]) {
-        NSLog(@"result : %d %@", [results intForColumn:@"id"], [results stringForColumn:@"name"]);
-    }
-    [db3 close];
-    
-}
 
 
 

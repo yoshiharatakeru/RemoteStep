@@ -43,6 +43,25 @@ static RSDBClient *_sharedClient = nil;
 
 
 
++ (id)allocWithZone:(NSZone *)zone{
+    
+    @synchronized(self){
+        if (_sharedClient == nil) {
+            _sharedClient = [super allocWithZone:zone];
+            return _sharedClient;
+        }
+    }
+    return nil;
+}
+
+
+
+- (id)copyWithZone:(NSZone*)zone{
+    return self;
+}
+
+
+
 //db作成
 - (void)createDBFile{
 
@@ -68,25 +87,15 @@ static RSDBClient *_sharedClient = nil;
 
 //データ挿入
 - (void)insertSpot:(RSSpot*)spot{
-        
-    //挿入
+    
+    
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql_name = @"INSERT INTO spots(name) VALUES(?)";
-    NSString *sql_lat = @"INSERT INTO spots(latitude) VALUES(?)";
-    NSString *sql_lng = @"INSERT INTO spots(longitude) VALUES(?)";
-    NSString *sql_x = @"INSERT INTO spots(x) VALUES(?)";
-    NSString *sql_y = @"INSERT INTO spots(y) VALUES(?)";
-
+    NSString *sql = @"INSERT INTO spots(name, latitude, longitude, x, y) VALUES(?,?,?,?,?)";
+    
     [db open];
-    [db executeUpdate:sql_name,spot.name];
-    [db executeUpdate:sql_lat, spot.latitude];
-    [db executeUpdate:sql_lng, spot.longitude];
-    [db executeUpdate:sql_x, spot.point_x];
-    [db executeUpdate:sql_y, spot.point_y];
-    
+    [db executeUpdate:sql, spot.name, spot.latitude, spot.longitude, spot.point_x, spot.point_y];
     [db close];
-    
-    
+
 }
 
 
@@ -104,18 +113,36 @@ static RSDBClient *_sharedClient = nil;
 
 
 //データ取得
-- (void)selectAllSpots{
+- (NSMutableArray*)selectAllSpots{
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"SELECT name FROM spots";
+    NSString *sql = @"SELECT * FROM spots";
     
     [db open];
     FMResultSet *results = [db executeQuery:sql];
+    
+    NSMutableArray *array = NSMutableArray.new;
+    
     while ([results next]) {
-        NSLog(@"name:%@",[results stringForColumn:@"name"]);
+        
+        RSSpot *spot = RSSpot.new;
+        
+        [spot setIdentifier:[NSString stringWithFormat:@"%d",[results intForColumn:@"id"]]];
+        [spot setName:[results stringForColumn:@"name"]];
+        [spot setLatitude:[results stringForColumn:@"latitude"]];
+        [spot setLongitude:[results stringForColumn:@"longitude"]];
+        [spot setPoint_x:[results stringForColumn:@"x"]];
+        [spot setPoint_y:[results stringForColumn:@"y"]];
+        
+        [array addObject:spot];
+        
     }
     
-     
+    return array;
+    
+    [db close];
+    
+    
 }
 
 

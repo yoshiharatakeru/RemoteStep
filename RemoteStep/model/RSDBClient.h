@@ -7,9 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RSSpot.h"
 
 @interface RSDBClient : NSObject
 
 @property(nonatomic,strong) NSString *dbPath;
+
++ (RSDBClient*)sharedInstance;
+- (void)createTable;
+- (void)createDBFile;
+- (void)insertSpot:(RSSpot*)spot;
+- (void)deleteSpot:(RSSpot*)spot;
+- (NSMutableArray*)selectAllSpots;
+
+
 
 @end
