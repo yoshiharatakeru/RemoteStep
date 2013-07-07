@@ -184,6 +184,14 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 
     [self prepareDrawing];
     
+    //距離の計算
+    if (_manager.locations.count <= 1) {
+        return;
+    }
+    
+    RSLocation *previous = _manager.locations[_manager.locations.count-2];
+[self calculateDistanceFromLocation1:new_location.location toLocation2:previous.location];
+
 
 
 }
@@ -257,6 +265,35 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
     return view;
 }
 
+//縮尺変更時
+/*
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
+    
+    NSLog(@"region changed");
+    
+    @try {
+        
+        if (mapView.tag == 1) {
+            MKCoordinateRegion region = _mapView2.region;
+            NSLog(@"center.x:%f",region.center.latitude);
+            NSLog(@"span:%f",region.span.latitudeDelta);
+            
+            region.span = MKCoordinateSpanMake(mapView.region.span.latitudeDelta, mapView.region.span.longitudeDelta);
+            region.center  = _mapView2.region.center;
+            [_mapView2 setRegion:region];
+        }
+        if (mapView.tag == 2) {
+            MKCoordinateRegion region = _mapView1.region;
+            region.span = MKCoordinateSpanMake(mapView.region.span.latitudeDelta, mapView.region.span.longitudeDelta);
+            region.center = _mapView1.region.center;
+            [_mapView1 setRegion:region];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"exception:%@",exception.reason);
+    }
+
+}
+*/
 
 
 #pragma mark -
@@ -376,6 +413,32 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 }
 
 
+- (float)calculateDistanceFromLocation1:(CLLocation*)location1 toLocation2:(CLLocation*)location2{
+    
+    
+    //location1
+    float lat1 = location1.coordinate.latitude;
+    float lng1 = location1.coordinate.longitude;
+    
+    //location2
+    float lat2 = location2.coordinate.latitude;
+    float lng2 = location2.coordinate.longitude;
+    
+    //地球の半径
+    float earth_r = 6378.137;
+    
+    //計算
+    float diff_lat = M_PI/180*(lat2 - lat1);
+    float diff_lng = M_PI/180*(lng2 - lng1);
+    
+    float dis_n_s = earth_r * diff_lat;
+    float dis_e_w = cos(M_PI/180*lat1) * earth_r * diff_lng;
+    
+    float distance = sqrtf(pow(dis_e_w, 2) + pow(dis_n_s, 2));
+
+    return distance;
+    
+}
 
 
 @end
