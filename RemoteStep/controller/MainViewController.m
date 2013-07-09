@@ -22,15 +22,26 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
     __weak IBOutlet UIButton *_btDrag;
     BOOL _isBtDragging;
     __weak IBOutlet UISearchBar *_searchBar;
+    float _distance;
     
     enum mapMode _mapMode;
+    __weak IBOutlet UILabel *_lb_distance;
+    
+    
+    //スペース初期値
+    float _first_slider_topSpce;
+    float _first_separator_topSpace;
+    
+    
     
     //constraint
     __weak IBOutlet NSLayoutConstraint *_slider_topSpace;
-    float _first_slider_topSpce;
     __weak IBOutlet NSLayoutConstraint *_map1_height;
     
     __weak IBOutlet NSLayoutConstraint *_searchBar_topSpace;
+    
+    __weak IBOutlet NSLayoutConstraint *separator_topSpace;
+    
 }
 
 @end
@@ -71,6 +82,8 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
     _searchBar_topSpace.constant = -44;
     _searchBar.showsCancelButton = YES;
     
+    _distance = 0;
+    
     
 }
 
@@ -101,6 +114,7 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
     if (ges.state == UIGestureRecognizerStateBegan) {
         NSLog(@"begin");
         _first_slider_topSpce = _slider_topSpace.constant;
+        _first_separator_topSpace = separator_topSpace.constant;
         _isBtDragging = YES;
 
     }
@@ -134,6 +148,9 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
         
         //スライダ移動
         _slider_topSpace.constant = _first_slider_topSpce + translation.y;
+        
+        //セパレータ移動
+        separator_topSpace.constant = _first_separator_topSpace + translation.y;
            
         [self.view layoutIfNeeded];
         
@@ -184,13 +201,17 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 
     [self prepareDrawing];
     
+    
     //距離の計算
     if (_manager.locations.count <= 1) {
         return;
     }
     
     RSLocation *previous = _manager.locations[_manager.locations.count-2];
-[self calculateDistanceFromLocation1:new_location.location toLocation2:previous.location];
+    float dis = [self calculateDistanceFromLocation1:new_location.location toLocation2:previous.location];
+    _distance += dis;
+    
+    _lb_distance.text = [NSString stringWithFormat:@"%.1fkm",_distance];
 
 
 
@@ -249,6 +270,8 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
     region.center = center;
     region.span = MKCoordinateSpanMake(spot.span.floatValue, spot.span.floatValue);
     [mapView setRegion:region];
+    
+    [self btClearPressed:nil];
     
     
     
@@ -341,6 +364,8 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
     [_manager removeAllLocations];
     [_mapView1 removeOverlays:_mapView1.overlays];
     [_mapView2 removeOverlays:_mapView2.overlays];
+    _distance = 0;
+    _lb_distance.text = [NSString stringWithFormat:@"%f",_distance];
     
 }
 - (IBAction)searchBt1Pressed:(id)sender {
