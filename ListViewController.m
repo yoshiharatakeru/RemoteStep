@@ -12,6 +12,8 @@
 #import "RSDBClient.h"
 #import "RSSpotManager.h"   
 #import "RSButton.h"
+#import "GAI.h"
+#import "GAITracker.h"
 
 @interface ListViewController (){
     
@@ -50,6 +52,13 @@
     
 }
 
+
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    self.trackedViewName = @"ListView";
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -218,6 +227,13 @@
     
     [self.view endEditing:YES];
     [_currentSpot setName:textField.text];
+    
+    //tracking
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    NSString *savedLocation = [NSString stringWithFormat:@"name:%@ lat:%@ lng:%@",_currentSpot.name, _currentSpot.latitude, _currentSpot.longitude];
+    [tracker sendEventWithCategory:@"ListView" withAction:@"saveLocation" withLabel:savedLocation withValue:nil];
+    
     
     //保存
     //DB

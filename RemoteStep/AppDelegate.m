@@ -7,12 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "GAI.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = 20;
+    [GAI sharedInstance].debug = YES;
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41355170-2"];
+
+    
     return YES;
 }
 							

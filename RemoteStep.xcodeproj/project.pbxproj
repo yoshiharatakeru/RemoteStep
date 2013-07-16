@@ -15,6 +15,9 @@
 		05322D111773069B000AA1ED /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D101773069B000AA1ED /* MainViewController.m */; };
 		05322D14177306F2000AA1ED /* RSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D13177306F2000AA1ED /* RSLocation.m */; };
 		05322D1717730713000AA1ED /* RSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D1617730713000AA1ED /* RSLocationManager.m */; };
+		0536417B178D9EA500E88939 /* bt_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05364179178D9EA500E88939 /* bt_add@2x.png */; };
+		0536417C178D9EA500E88939 /* bt_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0536417A178D9EA500E88939 /* bt_back@2x.png */; };
+		0536417E178D9EC200E88939 /* navigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0536417D178D9EC200E88939 /* navigationBar@2x.png */; };
 		0580A4A2178AD10F0057AF7D /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A49A178AD10F0057AF7D /* arrow@2x.png */; };
 		0580A4A3178AD10F0057AF7D /* bt_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A49B178AD10F0057AF7D /* bt_delete@2x.png */; };
 		0580A4A4178AD10F0057AF7D /* bt_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A49C178AD10F0057AF7D /* bt_list@2x.png */; };
@@ -23,6 +26,9 @@
 		0580A4A7178AD10F0057AF7D /* coloer_blow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A49F178AD10F0057AF7D /* coloer_blow@2x.png */; };
 		0580A4A8178AD10F0057AF7D /* color_upper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A4A0178AD10F0057AF7D /* color_upper@2x.png */; };
 		0580A4A9178AD10F0057AF7D /* separator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A4A1178AD10F0057AF7D /* separator@2x.png */; };
+		05819F5E1795673000425D77 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05819F5D1795673000425D77 /* libGoogleAnalytics.a */; };
+		05819F611795676600425D77 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05819F5F1795674900425D77 /* CoreData.framework */; };
+		05819F641795677800425D77 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05819F621795677000425D77 /* SystemConfiguration.framework */; };
 		05E1281E1769CD140093C097 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E1281D1769CD140093C097 /* UIKit.framework */; };
 		05E128201769CD140093C097 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E1281F1769CD140093C097 /* Foundation.framework */; };
 		05E128221769CD140093C097 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E128211769CD140093C097 /* CoreGraphics.framework */; };
@@ -61,6 +67,9 @@
 		05322D13177306F2000AA1ED /* RSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSLocation.m; path = ../../RSLocation.m; sourceTree = "<group>"; };
 		05322D1517730713000AA1ED /* RSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSLocationManager.h; path = ../../RSLocationManager.h; sourceTree = "<group>"; };
 		05322D1617730713000AA1ED /* RSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSLocationManager.m; path = ../../RSLocationManager.m; sourceTree = "<group>"; };
+		05364179178D9EA500E88939 /* bt_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_add@2x.png"; sourceTree = "<group>"; };
+		0536417A178D9EA500E88939 /* bt_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_back@2x.png"; sourceTree = "<group>"; };
+		0536417D178D9EC200E88939 /* navigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBar@2x.png"; sourceTree = "<group>"; };
 		0580A49A178AD10F0057AF7D /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		0580A49B178AD10F0057AF7D /* bt_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_delete@2x.png"; sourceTree = "<group>"; };
 		0580A49C178AD10F0057AF7D /* bt_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_list@2x.png"; sourceTree = "<group>"; };
@@ -69,6 +78,14 @@
 		0580A49F178AD10F0057AF7D /* coloer_blow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coloer_blow@2x.png"; sourceTree = "<group>"; };
 		0580A4A0178AD10F0057AF7D /* color_upper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color_upper@2x.png"; sourceTree = "<group>"; };
 		0580A4A1178AD10F0057AF7D /* separator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "separator@2x.png"; sourceTree = "<group>"; };
+		05819F581795673000425D77 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		05819F591795673000425D77 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		05819F5A1795673000425D77 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		05819F5B1795673000425D77 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		05819F5C1795673000425D77 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		05819F5D1795673000425D77 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		05819F5F1795674900425D77 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		05819F621795677000425D77 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		05E1281A1769CD140093C097 /* RemoteStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E1281D1769CD140093C097 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05E1281F1769CD140093C097 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -108,9 +125,12 @@
 				05E641EE1782E60E00080AE6 /* libsqlite3.0.dylib in Frameworks */,
 				05E128491769E6A30093C097 /* CoreLocation.framework in Frameworks */,
 				05E128411769CD760093C097 /* MapKit.framework in Frameworks */,
+				05819F641795677800425D77 /* SystemConfiguration.framework in Frameworks */,
 				05E1281E1769CD140093C097 /* UIKit.framework in Frameworks */,
+				05819F611795676600425D77 /* CoreData.framework in Frameworks */,
 				05E128201769CD140093C097 /* Foundation.framework in Frameworks */,
 				05E128221769CD140093C097 /* CoreGraphics.framework in Frameworks */,
+				05819F5E1795673000425D77 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,10 +179,13 @@
 		0580A499178AD10F0057AF7D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				05364179178D9EA500E88939 /* bt_add@2x.png */,
+				0536417A178D9EA500E88939 /* bt_back@2x.png */,
 				0580A49A178AD10F0057AF7D /* arrow@2x.png */,
 				0580A49B178AD10F0057AF7D /* bt_delete@2x.png */,
 				0580A49C178AD10F0057AF7D /* bt_list@2x.png */,
 				0580A49D178AD10F0057AF7D /* bt_search@2x.png */,
+				0536417D178D9EC200E88939 /* navigationBar@2x.png */,
 				0580A49E178AD10F0057AF7D /* bt_setting@2x.png */,
 				0580A49F178AD10F0057AF7D /* coloer_blow@2x.png */,
 				0580A4A0178AD10F0057AF7D /* color_upper@2x.png */,
@@ -171,9 +194,23 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		05819F571795673000425D77 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				05819F581795673000425D77 /* GAI.h */,
+				05819F591795673000425D77 /* GAITrackedViewController.h */,
+				05819F5A1795673000425D77 /* GAITracker.h */,
+				05819F5B1795673000425D77 /* GAITransaction.h */,
+				05819F5C1795673000425D77 /* GAITransactionItem.h */,
+				05819F5D1795673000425D77 /* libGoogleAnalytics.a */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
 		05E128111769CD140093C097 = {
 			isa = PBXGroup;
 			children = (
+				05819F571795673000425D77 /* GoogleAnalytics */,
 				05E641DB1782E57700080AE6 /* FMDB */,
 				05E128231769CD140093C097 /* RemoteStep */,
 				05E1281C1769CD140093C097 /* Frameworks */,
@@ -192,6 +229,8 @@
 		05E1281C1769CD140093C097 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05819F621795677000425D77 /* SystemConfiguration.framework */,
+				05819F5F1795674900425D77 /* CoreData.framework */,
 				05E641ED1782E60E00080AE6 /* libsqlite3.0.dylib */,
 				05E128481769E6A30093C097 /* CoreLocation.framework */,
 				05E128401769CD760093C097 /* MapKit.framework */,
@@ -312,6 +351,9 @@
 				0580A4A7178AD10F0057AF7D /* coloer_blow@2x.png in Resources */,
 				0580A4A8178AD10F0057AF7D /* color_upper@2x.png in Resources */,
 				0580A4A9178AD10F0057AF7D /* separator@2x.png in Resources */,
+				0536417B178D9EA500E88939 /* bt_add@2x.png in Resources */,
+				0536417C178D9EA500E88939 /* bt_back@2x.png in Resources */,
+				0536417E178D9EC200E88939 /* navigationBar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +470,10 @@
 				GCC_PREFIX_HEADER = "RemoteStep/RemoteStep-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${SRCROOT}/FMDB";
 				INFOPLIST_FILE = "RemoteStep/RemoteStep-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0EEFF9A4-8DCB-4040-A6A2-7E7E46C576F7";
 				WRAPPER_EXTENSION = app;
@@ -441,6 +487,10 @@
 				GCC_PREFIX_HEADER = "RemoteStep/RemoteStep-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${SRCROOT}/FMDB";
 				INFOPLIST_FILE = "RemoteStep/RemoteStep-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

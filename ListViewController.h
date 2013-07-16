@@ -11,8 +11,9 @@
 #import <UIKit/UIKit.h>
 #import "RSSpot.h"
 #import <MapKit/MapKit.h>
+#import "GAITrackedViewController.h"
 
-@interface ListViewController : UIViewController
+@interface ListViewController : GAITrackedViewController
 <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic,weak) id delegate;

@@ -14,8 +14,10 @@
 #import "ListViewController.h"
 #import "RSSpot.h"
 #import "RSDBClient.h"
+#import "GAITrackedViewController.h"
 
-@interface MainViewController : UIViewController
+
+@interface MainViewController : GAITrackedViewController
 <MKMapViewDelegate,UISearchBarDelegate,ListViewControllerDelegate>
 
 @end

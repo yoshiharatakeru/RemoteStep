@@ -9,6 +9,8 @@
 #import "MainViewController.h"
 #import "RSLocations.h"
 #import "RSButton.h"
+#import "GAITracker.h"
+#import "GAI.h"
 enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 
 @interface MainViewController ()
@@ -90,7 +92,10 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 
 - (void)viewDidAppear:(BOOL)animated{
     
+    [super viewDidAppear:animated];
     [self updateDiff];
+    
+    self.trackedViewName = @"MainView";
     
 
     
@@ -396,6 +401,11 @@ enum mapMode {MAP_MODE_1, MAP_MODE_2} _mapMode;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    //tracking
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendEventWithCategory:@"MainView" withAction:@"searchLocation" withLabel:searchBar.text withValue:nil];
+    
     
     [self.view endEditing:YES];
     _searchBar_topSpace.constant = -44;
