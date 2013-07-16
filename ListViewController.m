@@ -117,12 +117,13 @@
     region.center = CLLocationCoordinate2DMake(lat, lng);
     region.span.latitudeDelta = 0.2;
     region.span.longitudeDelta = 0.2;
-    [mapView setRegion:region animated:YES];
+    [mapView setRegion:region animated:NO];
     
     //削除ボタン
     RSButton *bt_rem = (RSButton*)[cell viewWithTag:3];
     bt_rem.indexPath = indexPath;
     [bt_rem addTarget:self action:@selector(removeSpot:) forControlEvents:UIControlEventTouchUpInside];
+    
       
     
 }
