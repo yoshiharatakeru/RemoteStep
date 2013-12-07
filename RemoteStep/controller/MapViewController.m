@@ -59,6 +59,7 @@
     _locationManager = [RSLocationManager new];
     
     //button
+    _btDelete.alpha = 0;
     [_btDelete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
     
     //search bar
@@ -152,6 +153,11 @@
     
     _lb_distance.text = [NSString stringWithFormat:@"%.1fkm",_distance];
      */
+    
+    //クリアボタン表示
+    [UIView animateWithDuration:0.3 animations:^{
+        _btDelete.alpha = 1;
+    }];
 
 
 }
@@ -221,6 +227,8 @@
     [_mapView2 removeOverlays:_mapView2.overlays];
     _distance = 0;
     _lb_distance.text = [NSString stringWithFormat:@"%f",_distance];
+    
+    _btDelete.alpha = 0;
 }
 
 @end
