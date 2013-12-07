@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>485CDAB9-57F8-4F36-A484-D00A1B38957C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RemoteStep</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2375F43C-1813-433F-8919-428158CA26C8</key>
+		<string>ssh://github.com/yoshiharatakeru/RemoteStep.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RemoteStep.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2375F43C-1813-433F-8919-428158CA26C8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/yoshiharatakeru/RemoteStep.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2375F43C-1813-433F-8919-428158CA26C8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2375F43C-1813-433F-8919-428158CA26C8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RemoteStep</string>
+		</dict>
+	</array>
+</dict>
+</plist>

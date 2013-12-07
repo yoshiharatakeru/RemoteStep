@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050A28711852D506000B140D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050A28701852D506000B140D /* MapViewController.m */; };
 		0512A3F11786DA1B00CBFFC7 /* RSSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512A3F01786DA1B00CBFFC7 /* RSSpot.m */; };
 		0512A3F41787FA6700CBFFC7 /* RSSpotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512A3F31787FA6600CBFFC7 /* RSSpotManager.m */; };
 		0512A3F81788024F00CBFFC7 /* RSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512A3F71788024F00CBFFC7 /* RSButton.m */; };
@@ -18,6 +19,7 @@
 		0536417B178D9EA500E88939 /* bt_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05364179178D9EA500E88939 /* bt_add@2x.png */; };
 		0536417C178D9EA500E88939 /* bt_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0536417A178D9EA500E88939 /* bt_back@2x.png */; };
 		0536417E178D9EC200E88939 /* navigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0536417D178D9EC200E88939 /* navigationBar@2x.png */; };
+		054DF00617CA0BA700DBCAC6 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054DF00517CA0BA700DBCAC6 /* libGoogleAnalytics.a */; };
 		0580A4A2178AD10F0057AF7D /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A49A178AD10F0057AF7D /* arrow@2x.png */; };
 		0580A4A3178AD10F0057AF7D /* bt_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A49B178AD10F0057AF7D /* bt_delete@2x.png */; };
 		0580A4A4178AD10F0057AF7D /* bt_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A49C178AD10F0057AF7D /* bt_list@2x.png */; };
@@ -26,7 +28,6 @@
 		0580A4A7178AD10F0057AF7D /* coloer_blow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A49F178AD10F0057AF7D /* coloer_blow@2x.png */; };
 		0580A4A8178AD10F0057AF7D /* color_upper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A4A0178AD10F0057AF7D /* color_upper@2x.png */; };
 		0580A4A9178AD10F0057AF7D /* separator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0580A4A1178AD10F0057AF7D /* separator@2x.png */; };
-		05819F5E1795673000425D77 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05819F5D1795673000425D77 /* libGoogleAnalytics.a */; };
 		05819F611795676600425D77 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05819F5F1795674900425D77 /* CoreData.framework */; };
 		05819F641795677800425D77 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05819F621795677000425D77 /* SystemConfiguration.framework */; };
 		05E1281E1769CD140093C097 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E1281D1769CD140093C097 /* UIKit.framework */; };
@@ -51,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		050A286F1852D506000B140D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		050A28701852D506000B140D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		0512A3EF1786DA1B00CBFFC7 /* RSSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSpot.h; sourceTree = "<group>"; };
 		0512A3F01786DA1B00CBFFC7 /* RSSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSpot.m; sourceTree = "<group>"; };
 		0512A3F21787FA6600CBFFC7 /* RSSpotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSpotManager.h; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		05364179178D9EA500E88939 /* bt_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_add@2x.png"; sourceTree = "<group>"; };
 		0536417A178D9EA500E88939 /* bt_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_back@2x.png"; sourceTree = "<group>"; };
 		0536417D178D9EC200E88939 /* navigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBar@2x.png"; sourceTree = "<group>"; };
+		054DF00517CA0BA700DBCAC6 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		0580A49A178AD10F0057AF7D /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		0580A49B178AD10F0057AF7D /* bt_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_delete@2x.png"; sourceTree = "<group>"; };
 		0580A49C178AD10F0057AF7D /* bt_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_list@2x.png"; sourceTree = "<group>"; };
@@ -83,7 +87,6 @@
 		05819F5A1795673000425D77 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		05819F5B1795673000425D77 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
 		05819F5C1795673000425D77 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
-		05819F5D1795673000425D77 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		05819F5F1795674900425D77 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		05819F621795677000425D77 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		05E1281A1769CD140093C097 /* RemoteStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +133,7 @@
 				05819F611795676600425D77 /* CoreData.framework in Frameworks */,
 				05E128201769CD140093C097 /* Foundation.framework in Frameworks */,
 				05E128221769CD140093C097 /* CoreGraphics.framework in Frameworks */,
-				05819F5E1795673000425D77 /* libGoogleAnalytics.a in Frameworks */,
+				054DF00617CA0BA700DBCAC6 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +175,8 @@
 				05E641F01782FCC000080AE6 /* ListViewController.m */,
 				05322D0F1773069B000AA1ED /* MainViewController.h */,
 				05322D101773069B000AA1ED /* MainViewController.m */,
+				050A286F1852D506000B140D /* MapViewController.h */,
+				050A28701852D506000B140D /* MapViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -199,10 +204,10 @@
 			children = (
 				05819F581795673000425D77 /* GAI.h */,
 				05819F591795673000425D77 /* GAITrackedViewController.h */,
+				054DF00517CA0BA700DBCAC6 /* libGoogleAnalytics.a */,
 				05819F5A1795673000425D77 /* GAITracker.h */,
 				05819F5B1795673000425D77 /* GAITransaction.h */,
 				05819F5C1795673000425D77 /* GAITransactionItem.h */,
-				05819F5D1795673000425D77 /* libGoogleAnalytics.a */,
 			);
 			path = GoogleAnalytics;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 				0525257F178303B9001485A8 /* RSDBClient.m in Sources */,
 				0512A3F11786DA1B00CBFFC7 /* RSSpot.m in Sources */,
 				0512A3F41787FA6700CBFFC7 /* RSSpotManager.m in Sources */,
+				050A28711852D506000B140D /* MapViewController.m in Sources */,
 				0512A3F81788024F00CBFFC7 /* RSButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +476,7 @@
 				GCC_PREFIX_HEADER = "RemoteStep/RemoteStep-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${SRCROOT}/FMDB";
 				INFOPLIST_FILE = "RemoteStep/RemoteStep-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
@@ -487,6 +494,7 @@
 				GCC_PREFIX_HEADER = "RemoteStep/RemoteStep-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${SRCROOT}/FMDB";
 				INFOPLIST_FILE = "RemoteStep/RemoteStep-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
