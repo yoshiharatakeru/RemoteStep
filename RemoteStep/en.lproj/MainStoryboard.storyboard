@@ -407,6 +407,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="_lb_distance" destination="mws-VT-pDy" id="urT-wx-Fh5"/>
                         <outlet property="_mapView1" destination="IHP-zn-yhW" id="9lb-jj-vlp"/>
                         <outlet property="_mapView2" destination="ALd-VT-sTW" id="eT0-Uf-ncz"/>
                         <outlet property="_slider" destination="Ke5-ft-NMG" id="NO5-pf-dax"/>

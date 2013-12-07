@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "RSLocation.h"
+#import "RSButton.h"
+#import "RSLocationManager.h"
+
 
 @interface MapViewController : UIViewController
+<MKMapViewDelegate>
 
 @end
