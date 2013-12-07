@@ -15,6 +15,7 @@
     __weak IBOutlet MKMapView *_mapView1;
     __weak IBOutlet MKMapView *_mapView2;
     __weak IBOutlet UILabel *_lb_distance;
+    __weak IBOutlet UIButton *_btDelete;
     
     RSLocationManager *_locationManager;
     float _diff_x, _diff_y;
@@ -58,6 +59,7 @@
     _locationManager = [RSLocationManager new];
     
     //button
+    [_btDelete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
     
     //search bar
     
@@ -198,6 +200,7 @@
     }
 }
 
+
 - (MKMapView*)selectedMap
 {
     if (_slider.value <= 0.5f) {
@@ -205,6 +208,19 @@
     }
     
     return _mapView2;
+}
+
+
+#pragma mark
+#pragma mark button action
+
+- (void)btDeletePressed:(UIButton*)bt
+{
+    [_locationManager removeAllLocations];
+    [_mapView1 removeOverlays:_mapView1.overlays];
+    [_mapView2 removeOverlays:_mapView2.overlays];
+    _distance = 0;
+    _lb_distance.text = [NSString stringWithFormat:@"%f",_distance];
 }
 
 @end

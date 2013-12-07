@@ -403,10 +403,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTf-GN-4ol">
+                                <rect key="frame" x="14" y="463" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" backgroundImage="bt_delete.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="_btDelete" destination="tTf-GN-4ol" id="ZcW-iP-w1C"/>
                         <outlet property="_lb_distance" destination="mws-VT-pDy" id="urT-wx-Fh5"/>
                         <outlet property="_mapView1" destination="IHP-zn-yhW" id="9lb-jj-vlp"/>
                         <outlet property="_mapView2" destination="ALd-VT-sTW" id="eT0-Uf-ncz"/>
