@@ -9,6 +9,13 @@
 #import "MapViewController.h"
 
 @interface MapViewController ()
+{
+    //outlet
+    __weak IBOutlet UISlider *_slider;
+    __weak IBOutlet MKMapView *_mapView1;
+    __weak IBOutlet MKMapView *_mapView2;
+    
+}
 
 @end
 
@@ -26,13 +33,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    //slider
+    _slider.minimumValue = 0;
+    _slider.maximumValue = 1;
+    _slider.value = 0.5f;
+    [_slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    //mapView
+    _mapView2.alpha = _slider.value;
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark -
+#pragma mark private method
+
+- (void)sliderValueChanged:(UISlider*)slider
+{
+    _mapView2.alpha = slider.value;
+
+    
 }
 
 @end

@@ -399,30 +399,22 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ALd-VT-sTW">
+                                <rect key="frame" x="20" y="84" width="240" height="228"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="_mapView1" destination="IHP-zn-yhW" id="9lb-jj-vlp"/>
+                        <outlet property="_mapView2" destination="ALd-VT-sTW" id="eT0-Uf-ncz"/>
+                        <outlet property="_slider" destination="Ke5-ft-NMG" id="NO5-pf-dax"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnV-Mj-8A6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-195" y="648"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="rCM-hm-r20">
-            <objects>
-                <viewController id="psn-El-LuS" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qFJ-ga-Ed1"/>
-                        <viewControllerLayoutGuide type="bottom" id="zOt-hp-CP4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zk0-ep-xYf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n4a-KZ-WmA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
