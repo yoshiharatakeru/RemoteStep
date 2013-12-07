@@ -58,7 +58,33 @@
 - (void)sliderValueChanged:(UISlider*)slider
 {
     _mapView2.alpha = slider.value;
+    [self switchMapUserInteraction];
 
+    
+}
+
+
+
+- (void)switchMapUserInteraction
+{
+    if ([self selectedMap] == _mapView1) {
+        _mapView1.userInteractionEnabled = YES;
+        _mapView2.userInteractionEnabled = NO;
+    }
+    
+    else{
+        _mapView1.userInteractionEnabled = NO;
+        _mapView2.userInteractionEnabled = YES;
+    }
+}
+
+- (MKMapView*)selectedMap
+{
+    if (_slider.value <= 0.5f) {
+        return _mapView1;
+    }
+    
+    return _mapView2;
     
 }
 

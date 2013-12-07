@@ -343,6 +343,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="516"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ALd-VT-sTW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="516"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-Lr-nEA">
                                 <rect key="frame" x="0.0" y="516" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -399,10 +403,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ALd-VT-sTW">
-                                <rect key="frame" x="20" y="84" width="240" height="228"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -422,10 +422,7 @@
         <image name="bt_add.png" width="44" height="44"/>
         <image name="bt_back.png" width="44" height="44"/>
         <image name="bt_delete.png" width="31" height="31"/>
-        <image name="bt_delete.png" width="31" height="31"/>
         <image name="bt_list.png" width="31" height="31"/>
-        <image name="bt_list.png" width="31" height="31"/>
-        <image name="bt_search.png" width="31" height="31"/>
         <image name="bt_search.png" width="31" height="31"/>
         <image name="navigationBar.png" width="320" height="44"/>
         <image name="separator.png" width="320" height="20"/>
