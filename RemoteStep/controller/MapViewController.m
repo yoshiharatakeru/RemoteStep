@@ -11,7 +11,6 @@
 @interface MapViewController ()
 {
     //outlet
-    __weak IBOutlet UISlider *_slider;
     __weak IBOutlet MKMapView *_mapView1;
     __weak IBOutlet MKMapView *_mapView2;
     __weak IBOutlet UILabel *_lb_distance;
@@ -20,6 +19,7 @@
     RSLocationManager *_locationManager;
     float _diff_x, _diff_y;
     float _distance;
+    MKMapView *_selectedMap;
     
 }
 
@@ -43,17 +43,11 @@
     //tap gesture
     UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapMap:)];
     [_mapView1 addGestureRecognizer:ges];
-    
-    //slider
-    _slider.minimumValue = 0;
-    _slider.maximumValue = 1;
-    _slider.value = 0.5f;
-    [_slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-    
+
     //mapView
     _mapView1.delegate = self;
     _mapView2.delegate = self;
-    _mapView2.alpha = _slider.value;
+    _selectedMap = _mapView1;
     
     //model
     _locationManager = [RSLocationManager new];
@@ -61,6 +55,9 @@
     //button
     _btDelete.alpha = 0;
     [_btDelete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //最初はmap1が選択されている
+    [self btMap1Pressed:nil];
     
     //search bar
     
@@ -114,17 +111,6 @@
     
 }
 
-
-#pragma mark -
-#pragma mark private method
-
-- (void)sliderValueChanged:(UISlider*)slider
-{
-    _mapView2.alpha = slider.value;
-    [self switchMapUserInteraction];
-
-    
-}
 
 
 //地図1と地図2の差の値を更新
@@ -258,30 +244,6 @@
 }
 
 
-//マップの操作権をスイッチ
-- (void)switchMapUserInteraction
-{
-    if ([self selectedMap] == _mapView1) {
-        _mapView1.userInteractionEnabled = YES;
-        _mapView2.userInteractionEnabled = NO;
-    }
-    
-    else{
-        _mapView1.userInteractionEnabled = NO;
-        _mapView2.userInteractionEnabled = YES;
-    }
-}
-
-
-- (MKMapView*)selectedMap
-{
-    if (_slider.value <= 0.5f) {
-        return _mapView1;
-    }
-    
-    return _mapView2;
-}
-
 
 - (float)calculateDistanceFromLocation1:(CLLocation*)location1 toLocation2:(CLLocation*)location2{
     
@@ -310,6 +272,30 @@
 }
 
 
+- (void)switchMap
+{
+    if (_selectedMap == _mapView1) {
+        //switch to map2
+        _selectedMap = _mapView2;
+        [UIView animateWithDuration:0.3 animations:^{
+            _mapView2.alpha = 1;
+            _mapView2.userInteractionEnabled = YES;
+            _mapView1.userInteractionEnabled = NO;
+        }];
+    }
+    
+    else{
+        //switch to map1
+        _selectedMap = _mapView1;
+        [UIView animateWithDuration:0.3 animations:^{
+            _mapView2.alpha = 0;
+            _mapView1.userInteractionEnabled = YES;
+            _mapView2.userInteractionEnabled = NO;
+        }];
+    }
+}
+
+
 #pragma mark
 #pragma mark button action
 
@@ -332,4 +318,32 @@
     _btDelete.alpha = 0;
 }
 
+
+
+- (IBAction)btMap1Pressed:(id)sender {
+    
+    if (_selectedMap == _mapView1) {
+        return;
+    }
+    
+    //button appearancen
+    
+    //switch map
+    [self switchMap];
+}
+
+
+
+
+- (IBAction)btMap2Pressed:(id)sender {
+    
+    if (_selectedMap == _mapView2) {
+        return;
+    }
+    
+    //button appearancen
+    
+    //switch map
+    [self switchMap];
+}
 @end
