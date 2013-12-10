@@ -47,7 +47,6 @@
     //mapView
     _mapView1.delegate = self;
     _mapView2.delegate = self;
-    _selectedMap = _mapView1;
     
     //model
     _locationManager = [RSLocationManager new];
@@ -55,13 +54,22 @@
     //button
     _btDelete.alpha = 0;
     [_btDelete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //最初はmap1が選択されている
-    [self btMap1Pressed:nil];
+
     
     //search bar
     
 }
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    //最初はmap1が選択されている
+    _selectedMap = _mapView2;
+    [self btMap1Pressed:nil];
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
