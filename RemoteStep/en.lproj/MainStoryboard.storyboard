@@ -432,7 +432,11 @@
         <image name="bt_add.png" width="44" height="44"/>
         <image name="bt_back.png" width="44" height="44"/>
         <image name="bt_delete.png" width="31" height="31"/>
+        <image name="bt_delete.png" width="31" height="31"/>
+        <image name="bt_delete.png" width="31" height="31"/>
         <image name="bt_list.png" width="31" height="31"/>
+        <image name="bt_list.png" width="31" height="31"/>
+        <image name="bt_search.png" width="31" height="31"/>
         <image name="bt_search.png" width="31" height="31"/>
         <image name="navigationBar.png" width="320" height="44"/>
         <image name="separator.png" width="320" height="20"/>

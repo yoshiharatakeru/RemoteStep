@@ -99,7 +99,7 @@
 }
 
 
-- (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+- (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(RSAnnotation*)annotation
 {
     MKAnnotationView *annotationView;
     annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"dot1"];
@@ -108,7 +108,7 @@
 
     }
     
-    annotationView.image = [UIImage imageNamed:@"dot1"];
+    annotationView.image = annotation.image;
     
     return annotationView;
     
@@ -184,7 +184,7 @@
     
     [self prepareDrawing];
     
-    /*
+    
     //距離の計算
     if (_locationManager.locations.count <= 1) {
         return;
@@ -195,12 +195,14 @@
     _distance += dis;
     
     _lb_distance.text = [NSString stringWithFormat:@"%.1fkm",_distance];
-     */
+    
     
     //クリアボタン表示
     [UIView animateWithDuration:0.3 animations:^{
         _btDelete.alpha = 1;
     }];
+    
+    
 
 
 }
@@ -209,6 +211,10 @@
 - (void)prepareDrawing{
     
     //mapView1
+    
+    //クリア
+    [_mapView1 removeAnnotations:_mapView1.annotations];
+    [_mapView1 removeOverlays:_mapView1.overlays];
     
     //line
     MKMapPoint points[_locationManager.locations.count];
@@ -223,12 +229,19 @@
     [_mapView1 addOverlay:line];
     
     
-    //annotation
+    //annotation(dot)
     for (RSLocation *locationModel in _locationManager.locations) {
         RSAnnotation *annotation = [[RSAnnotation alloc]initWithLocationCoordinate:locationModel.location.coordinate image:[UIImage imageNamed:@"dot1"]];
         [_mapView1 addAnnotation:annotation];
-        
     }
+    
+    /*
+    //annotation(distance)
+    RSLocation *latestLocation = [_locationManager.locations lastObject];
+    RSAnnotation *annotation_distance = [[RSAnnotation alloc]initWithLocationCoordinate:latestLocation.location.coordinate image:[UIImage imageNamed:@"distance"]];
+    [_mapView1 addAnnotation:annotation_distance];
+     */
+    
     
     
     
@@ -270,14 +283,49 @@
 }
 
 
+- (float)calculateDistanceFromLocation1:(CLLocation*)location1 toLocation2:(CLLocation*)location2{
+    
+    //location1
+    float lat1 = location1.coordinate.latitude;
+    float lng1 = location1.coordinate.longitude;
+    
+    //location2
+    float lat2 = location2.coordinate.latitude;
+    float lng2 = location2.coordinate.longitude;
+    
+    //地球の半径
+    float earth_r = 6378.137;
+    
+    //計算
+    float diff_lat = M_PI/180*(lat2 - lat1);
+    float diff_lng = M_PI/180*(lng2 - lng1);
+    
+    float dis_n_s = earth_r * diff_lat;
+    float dis_e_w = cos(M_PI/180*lat1) * earth_r * diff_lng;
+    
+    float distance = sqrtf(pow(dis_e_w, 2) + pow(dis_n_s, 2));
+    
+    return distance;
+    
+}
+
+
 #pragma mark
 #pragma mark button action
 
 - (void)btDeletePressed:(UIButton*)bt
 {
     [_locationManager removeAllLocations];
+    
+    //overlay
     [_mapView1 removeOverlays:_mapView1.overlays];
     [_mapView2 removeOverlays:_mapView2.overlays];
+    
+    //annotation
+    [_mapView1 removeAnnotations:_mapView1.annotations];
+    [_mapView2 removeAnnotations:_mapView2.annotations];
+
+    
     _distance = 0;
     _lb_distance.text = [NSString stringWithFormat:@"%f",_distance];
     
