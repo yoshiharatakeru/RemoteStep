@@ -77,12 +77,42 @@
 #pragma mark mapView delegate
 - (MKOverlayView*)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay{
     
-    MKPolylineView *view = [[MKPolylineView alloc]initWithOverlay:overlay];
-    view.strokeColor = [UIColor darkGrayColor];
-    view.lineWidth = 5.0;
-    return view;
+    if ([overlay isKindOfClass:[MKPolyline class]]) {//line
+        
+        MKPolylineView *view = [[MKPolylineView alloc]initWithOverlay:overlay];
+        NSNumber *lineGapSize = [NSNumber numberWithInteger:10];
+        view.fillColor = [UIColor colorWithHue:50 saturation:50 brightness:100 alpha:0.5];
+        view.lineDashPattern = [NSArray arrayWithObjects:lineGapSize,lineGapSize,nil];
+        view.strokeColor = [UIColor darkGrayColor];
+        view.lineWidth = 5.0;
+        return view;
+    
+    }else if ([overlay isKindOfClass:[MKCircle class]]){//circle
+        
+        MKCircleView *view = [[MKCircleView alloc]initWithOverlay:overlay];
+        view.fillColor = [UIColor colorWithHue:50 saturation:50 brightness:50 alpha:1];
+        return view;
+    }
+    
+    return nil;
+
 }
 
+
+- (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    MKAnnotationView *annotationView;
+    annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"dot1"];
+    if (!annotationView) {
+        annotationView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"dot1"];
+
+    }
+    
+    annotationView.image = [UIImage imageNamed:@"dot1"];
+    
+    return annotationView;
+    
+}
 
 
 #pragma mark -
@@ -111,6 +141,19 @@
 
 - (void)tapMap:(UITapGestureRecognizer*)sender
 {
+    
+    //縮尺を合わせる
+    _mapView2.userInteractionEnabled = YES;
+    MKCoordinateRegion region = _mapView2.region;
+    region.span = _mapView1.region.span;
+    [_mapView2 setRegion:region animated:NO];
+    _mapView2.userInteractionEnabled = NO;
+     
+    
+    if (_mapView2.userInteractionEnabled) {
+        NSLog(@"YES");
+    }
+    
     //最初のタップなら座標の差異を更新
     if (_locationManager.locations.count == 0) {
         [self updateDiff];
@@ -165,8 +208,9 @@
 
 - (void)prepareDrawing{
     
-    //描画
     //mapView1
+    
+    //line
     MKMapPoint points[_locationManager.locations.count];
     
     for (int i=0; i<_locationManager.locations.count; i++) {
@@ -177,6 +221,15 @@
     
     MKPolyline *line = [MKPolyline polylineWithPoints:points count:_locationManager.locations.count];
     [_mapView1 addOverlay:line];
+    
+    
+    //annotation
+    for (RSLocation *locationModel in _locationManager.locations) {
+        RSAnnotation *annotation = [[RSAnnotation alloc]initWithLocationCoordinate:locationModel.location.coordinate image:[UIImage imageNamed:@"dot1"]];
+        [_mapView1 addAnnotation:annotation];
+        
+    }
+    
     
     
     //mapView2

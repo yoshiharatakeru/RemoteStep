@@ -11,6 +11,7 @@
 #import "RSLocation.h"
 #import "RSButton.h"
 #import "RSLocationManager.h"
+#import "RSAnnotation.h"
 
 
 @interface MapViewController : UIViewController

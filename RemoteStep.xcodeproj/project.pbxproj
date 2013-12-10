@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		050A28711852D506000B140D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050A28701852D506000B140D /* MapViewController.m */; };
+		050A290F18571B49000B140D /* dot1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 050A290E18571B49000B140D /* dot1@2x.png */; };
+		050A291218571DED000B140D /* RSAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 050A291118571DED000B140D /* RSAnnotation.m */; };
 		0512A3F11786DA1B00CBFFC7 /* RSSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512A3F01786DA1B00CBFFC7 /* RSSpot.m */; };
 		0512A3F41787FA6700CBFFC7 /* RSSpotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512A3F31787FA6600CBFFC7 /* RSSpotManager.m */; };
 		0512A3F81788024F00CBFFC7 /* RSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0512A3F71788024F00CBFFC7 /* RSButton.m */; };
@@ -54,6 +56,9 @@
 /* Begin PBXFileReference section */
 		050A286F1852D506000B140D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		050A28701852D506000B140D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		050A290E18571B49000B140D /* dot1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dot1@2x.png"; sourceTree = "<group>"; };
+		050A291018571DED000B140D /* RSAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAnnotation.h; sourceTree = "<group>"; };
+		050A291118571DED000B140D /* RSAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAnnotation.m; sourceTree = "<group>"; };
 		0512A3EF1786DA1B00CBFFC7 /* RSSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSpot.h; sourceTree = "<group>"; };
 		0512A3F01786DA1B00CBFFC7 /* RSSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSpot.m; sourceTree = "<group>"; };
 		0512A3F21787FA6600CBFFC7 /* RSSpotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSpotManager.h; sourceTree = "<group>"; };
@@ -145,6 +150,8 @@
 			children = (
 				0512A3F61788024F00CBFFC7 /* RSButton.h */,
 				0512A3F71788024F00CBFFC7 /* RSButton.m */,
+				050A291018571DED000B140D /* RSAnnotation.h */,
+				050A291118571DED000B140D /* RSAnnotation.m */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -184,6 +191,7 @@
 		0580A499178AD10F0057AF7D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				050A290E18571B49000B140D /* dot1@2x.png */,
 				05364179178D9EA500E88939 /* bt_add@2x.png */,
 				0536417A178D9EA500E88939 /* bt_back@2x.png */,
 				0580A49A178AD10F0057AF7D /* arrow@2x.png */,
@@ -351,6 +359,7 @@
 				0580A4A2178AD10F0057AF7D /* arrow@2x.png in Resources */,
 				0580A4A3178AD10F0057AF7D /* bt_delete@2x.png in Resources */,
 				0580A4A4178AD10F0057AF7D /* bt_list@2x.png in Resources */,
+				050A290F18571B49000B140D /* dot1@2x.png in Resources */,
 				0580A4A5178AD10F0057AF7D /* bt_search@2x.png in Resources */,
 				0580A4A6178AD10F0057AF7D /* bt_setting@2x.png in Resources */,
 				0580A4A7178AD10F0057AF7D /* coloer_blow@2x.png in Resources */,
@@ -384,6 +393,7 @@
 				0525257F178303B9001485A8 /* RSDBClient.m in Sources */,
 				0512A3F11786DA1B00CBFFC7 /* RSSpot.m in Sources */,
 				0512A3F41787FA6700CBFFC7 /* RSSpotManager.m in Sources */,
+				050A291218571DED000B140D /* RSAnnotation.m in Sources */,
 				050A28711852D506000B140D /* MapViewController.m in Sources */,
 				0512A3F81788024F00CBFFC7 /* RSButton.m in Sources */,
 			);
