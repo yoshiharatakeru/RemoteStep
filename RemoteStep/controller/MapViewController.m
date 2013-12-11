@@ -55,20 +55,17 @@
     _btDelete.alpha = 0;
     [_btDelete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
 
-    
     //search bar
     
-}
-
-
-- (void)viewWillAppear:(BOOL)animated
-{
     
     //最初はmap1が選択されている
     _selectedMap = _mapView2;
     [self btMap1Pressed:nil];
     
 }
+
+
+
 
 
 - (void)didReceiveMemoryWarning
@@ -120,6 +117,36 @@
 }
 
 
+#pragma mark -
+#pragma mark ListViewControllerDelegate
+
+- (void)ListViewControllerDidCancelEditing:(id)sender{
+    [sender dismissModalViewControllerAnimated:YES];
+}
+
+
+- (void)ListViewController:(ListViewController*)sender didSelectSpot:(RSSpot *)spot{
+    
+    [sender dismissViewControllerAnimated:YES completion:nil];
+    
+    MKMapView *mapView = (sender.map_num == 1)? _mapView1 : _mapView2;
+    
+    //map更新
+    MKCoordinateRegion region = mapView.region;
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake([spot.latitude floatValue], [spot.longitude floatValue]);
+    
+    region.center = center;
+    region.span = MKCoordinateSpanMake(spot.span.floatValue, spot.span.floatValue);
+    [mapView setRegion:region];
+    
+    [self btDeletePressed:nil];
+    
+    
+}
+
+
+#pragma mark -
+#pragma mark private action
 
 //地図1と地図2の差の値を更新
 - (void)updateDiff
@@ -354,4 +381,39 @@
     //switch map
     [self switchMap];
 }
+
+
+- (IBAction)btListPressed:(id)sender {
+    
+    MKMapView *mapView = _selectedMap;
+    
+    //現在の表示場所を取得
+    RSSpot *currentSpot = RSSpot.new;
+    NSString *lat, *lng, *point_x, *point_y, *span;
+    
+    lat = [NSString stringWithFormat:@"%f",mapView.centerCoordinate.latitude];
+    lng = [NSString stringWithFormat:@"%f",mapView.centerCoordinate.longitude];
+    
+    MKMapPoint p = MKMapPointForCoordinate(_mapView1.centerCoordinate);
+    point_x = [NSString stringWithFormat:@"%f",p.x];
+    point_y = [NSString stringWithFormat:@"%f",p.y];
+    
+    span = [NSString stringWithFormat:@"%f",mapView.region.span.latitudeDelta];
+    
+    currentSpot.latitude  = lat;
+    currentSpot.longitude = lng;
+    currentSpot.point_x   = point_x;
+    currentSpot.point_y   = point_y;
+    currentSpot.span      = span;
+    
+    
+    //リスト開く
+    ListViewController *listCon = [self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
+    listCon.delegate = self;
+    listCon.map_num  = (_selectedMap == _mapView1)? 1 : 2;
+    listCon.currentSpot = currentSpot;
+    
+    [self presentViewController:listCon animated:YES completion:nil];
+}
+
 @end

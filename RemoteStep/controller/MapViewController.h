@@ -12,6 +12,8 @@
 #import "RSButton.h"
 #import "RSLocationManager.h"
 #import "RSAnnotation.h"
+#import "RSSpot.h"
+#import "ListViewController.h"
 
 
 @interface MapViewController : UIViewController
