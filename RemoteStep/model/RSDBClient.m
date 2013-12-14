@@ -124,7 +124,7 @@ static RSDBClient *_sharedClient = nil;
 
 
 //データ取得
-- (NSMutableArray*)selectAllSpots{
+- (NSArray*)selectAllSpots{
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
     NSString *sql = @"SELECT * FROM spots";
@@ -150,10 +150,10 @@ static RSDBClient *_sharedClient = nil;
         
     }
     
-    return array;
+    NSArray *reversedData = [[array reverseObjectEnumerator]allObjects];
+    return reversedData;
     
     [db close];
-    
     
 }
 

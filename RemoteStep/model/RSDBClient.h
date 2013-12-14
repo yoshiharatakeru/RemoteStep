@@ -19,7 +19,7 @@
 - (void)createDBFile;
 - (void)insertSpot:(RSSpot*)spot;
 - (void)deleteSpot:(RSSpot*)spot;
-- (NSMutableArray*)selectAllSpots;
+- (NSArray*)selectAllSpots;
 
 
 
