@@ -15,12 +15,15 @@
     __weak IBOutlet MKMapView *_mapView2;
     __weak IBOutlet UILabel *_lb_distance;
     __weak IBOutlet UIButton *_btDelete;
+    __weak IBOutlet UISearchBar *_searchBar;
+    __weak IBOutlet UIView *_blackView;
     
     RSLocationManager *_locationManager;
     float _diff_x, _diff_y;
     float _distance;
     MKMapView *_selectedMap;
     
+    __weak IBOutlet NSLayoutConstraint *_topSpace_serchBar;
 }
 
 @end
@@ -56,11 +59,16 @@
     [_btDelete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
 
     //search bar
-    
+    _topSpace_serchBar.constant = _searchBar.bounds.size.height * -1;
+    _searchBar.delegate = self;
+    _searchBar.showsCancelButton = YES;
     
     //最初はmap1が選択されている
     _selectedMap = _mapView2;
     [self btMap1Pressed:nil];
+    
+    //status bar
+    [UIApplication sharedApplication].statusBarHidden = YES;
     
 }
 
@@ -331,6 +339,80 @@
 }
 
 
+- (void)showSearchBar
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        _topSpace_serchBar.constant = 0;
+        _blackView.alpha = 0.5;
+    } completion:^(BOOL finished) {
+        [_searchBar becomeFirstResponder];
+    }];
+    
+}
+
+
+- (void)hideSearchBar
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        _topSpace_serchBar.constant = _searchBar.bounds.size.height * -1;
+        _blackView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [_searchBar resignFirstResponder];
+    }];
+}
+
+
+#pragma mark -
+#pragma mark search bar delegate
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self hideSearchBar];
+    
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    //tracking
+    /*
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendEventWithCategory:@"MainView" withAction:@"searchLocation" withLabel:searchBar.text withValue:nil];
+     */
+    
+    
+    [self hideSearchBar];
+    
+    //場所を検索
+    //正ジオコーディングで場所の検索
+    CLGeocoder *geocoder = [[CLGeocoder alloc]init];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+    [geocoder geocodeAddressString:searchBar.text completionHandler:^(NSArray *placemarks, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:NO];
+        if (error) {
+            NSLog(@"geocoder error:%@",error.localizedDescription);
+        }
+        
+        if (placemarks.count >0){
+            
+            NSLog(@"num of places :%d",placemarks.count);
+            
+            CLPlacemark *placemark;
+            placemark = [placemarks objectAtIndex:0];
+            CLLocation *location = placemark.location;
+            
+            //マップの位置を変更
+                [_selectedMap setRegion:MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.02, 0.02))];
+            
+        }else{
+            NSString *message = @"結果がありません";
+            UIAlertView *al = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            [al show];
+        }
+        
+    }];
+}
+
 #pragma mark
 #pragma mark button action
 
@@ -415,5 +497,21 @@
     
     [self presentViewController:listCon animated:YES completion:nil];
 }
+
+
+- (IBAction)btSearchPressed:(id)sender {
+    
+    if ([_searchBar isFirstResponder]) {
+        [self hideSearchBar];
+        return;
+    }
+    
+    else{
+        [self showSearchBar];
+    }
+}
+
+
+
 
 @end

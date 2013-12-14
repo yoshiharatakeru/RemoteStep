@@ -14,9 +14,10 @@
 #import "RSAnnotation.h"
 #import "RSSpot.h"
 #import "ListViewController.h"
+#import "MBProgressHUD.h"
 
 
 @interface MapViewController : UIViewController
-<MKMapViewDelegate>
+<MKMapViewDelegate, UISearchBarDelegate>
 
 @end
