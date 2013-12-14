@@ -137,13 +137,13 @@
 #pragma mark ListViewControllerDelegate
 
 - (void)ListViewControllerDidCancelEditing:(id)sender{
-    [sender dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
 - (void)ListViewController:(ListViewController*)sender didSelectSpot:(RSSpot *)spot{
     
-    [sender dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
     
     MKMapView *mapView = (sender.map_num == 1)? _mapView1 : _mapView2;
     
@@ -232,6 +232,7 @@
     _distance += dis;
     
     _lb_distance.text = [NSString stringWithFormat:@"%.1fkm",_distance];
+    self.navigationController.title = [NSString stringWithFormat:@"%.1fkm", _distance];
     
     
     //クリアボタン表示
@@ -487,8 +488,9 @@
 }
 
 
+
+
 - (IBAction)btListPressed:(id)sender {
-    
     MKMapView *mapView = _selectedMap;
     
     //現在の表示場所を取得
@@ -517,7 +519,7 @@
     listCon.map_num  = (_selectedMap == _mapView1)? 1 : 2;
     listCon.currentSpot = currentSpot;
     
-    [self presentViewController:listCon animated:YES completion:nil];
+    [self.navigationController pushViewController:listCon animated:YES];
 }
 
 

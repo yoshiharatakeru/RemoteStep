@@ -40,6 +40,7 @@
     _tableView.dataSource = self;
     
     
+    
     //保存内容取得
     _spotManager = [RSSpotManager sharedManager];
     [_spotManager refreshSpots];
@@ -150,12 +151,13 @@
 - (IBAction)addBtPressed:(id)sender {
     
     RSAllertViewController *al = [self.storyboard instantiateViewControllerWithIdentifier:@"RSAllertViewController"];
+    al.allertMode = (_map_num == 1)? ALLERT_MODE_1:ALLERT_MODE_2;
 
     __weak RSAllertViewController *al_weak = al;
     al.completionAction = ^(NSString *locationName){
         [self saveLocationName:locationName];
         [al_weak willRemoveFromParentViewController:self];
-        [self removeFromParentViewController];
+        [al_weak removeFromParentViewController];
 
     };
     
