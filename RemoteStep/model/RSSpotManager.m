@@ -70,4 +70,13 @@ static RSSpotManager *_sharedManager = nil;
 }
 
 
+- (void)refreshSpots
+{
+    [self removeAllSpots];
+    RSDBClient *client = [RSDBClient sharedInstance];
+    NSMutableArray *spots = (NSMutableArray*)[client selectAllSpots];
+    _spots = [spots mutableCopy];
+    
+}
+
 @end

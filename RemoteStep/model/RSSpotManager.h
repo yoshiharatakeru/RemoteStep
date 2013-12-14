@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RSSpot.h"
+#import "RSDBClient.h"
 
 @interface RSSpotManager : NSObject
 
@@ -17,6 +18,7 @@
 - (void)addSpot:(RSSpot*)spot;
 - (void)removeSpotAtIndex:(int)index;
 - (void)removeAllSpots;
+- (void)refreshSpots;
 
 
 @end

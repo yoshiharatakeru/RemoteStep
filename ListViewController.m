@@ -14,6 +14,7 @@
 #import "RSButton.h"
 #import "GAI.h"
 #import "GAITracker.h"
+#import "RSAllertViewController.h"
 
 @interface ListViewController (){
     
@@ -39,16 +40,9 @@
     _tableView.dataSource = self;
     
     
-    //alertview
-    [self initAlertView];
-    
     //保存内容取得
     _spotManager = [RSSpotManager sharedManager];
-    [_spotManager removeAllSpots];
-    RSDBClient *client = [RSDBClient sharedInstance];
-    NSMutableArray *spots = (NSMutableArray*)[client selectAllSpots];
-    _spotManager.spots = [spots mutableCopy];
-    
+    [_spotManager refreshSpots];
     
 }
 
@@ -155,15 +149,37 @@
 
 - (IBAction)addBtPressed:(id)sender {
     
-    [_al show];
+    RSAllertViewController *al = [self.storyboard instantiateViewControllerWithIdentifier:@"RSAllertViewController"];
+
+    __weak RSAllertViewController *al_weak = al;
+    al.completionAction = ^(NSString *locationName){
+        [self saveLocationName:locationName];
+        [al_weak willRemoveFromParentViewController:self];
+        [self removeFromParentViewController];
+
+    };
     
+    al.cancelAction = ^(){
+        [al_weak willRemoveFromParentViewController:self];
+        [al_weak removeFromParentViewController];
+    };
+    
+    [self addChildViewController:al];
+    [al didMoveToParentViewController:self];
+
     
 }
 
 
-- (void)removeSpot:(RSButton*)bt{
 
+
+
+#pragma mark -
+#pragma mark private action
+
+- (void)removeSpot:(RSButton*)bt{
     
+    NSLog(@"remove:indexpath:%d",bt.indexPath.row);
     RSDBClient *client = [RSDBClient sharedInstance];
     
     //DBから消去
@@ -184,50 +200,12 @@
         UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
         [self updateCell:cell atIndexPath:indexPath];
     }
-    
-    
-    
 }
 
 
-
-#pragma mark -
-#pragma mark private action
-
-- (void)initAlertView{
-    
-    _al = [[UIAlertView alloc]initWithTitle:@"現在地の保存" message:@" " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    
-    // UITextFieldの生成
-    textField = [[UITextField alloc] initWithFrame:CGRectMake(12, 45, 260, 30)];
-    textField.borderStyle = UITextBorderStyleRoundedRect;
-    textField.textAlignment = UITextAlignmentLeft;
-    textField.font = [UIFont fontWithName:@"Arial-BoldMT" size:15];
-    textField.textColor = [UIColor grayColor];
-    textField.minimumFontSize = 8;
-    textField.adjustsFontSizeToFitWidth = YES;
-    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField.delegate = self;
-    textField.placeholder = @"場所の名前を入力";
-    
-    // アラートビューにテキストフィールドを埋め込む
-    [_al addSubview:textField];
-    
-    
-}
-
-
-#pragma mark -
-#pragma mark alertview
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    if (buttonIndex != 1) {
-        return;
-    }
-    
-    [self.view endEditing:YES];
-    [_currentSpot setName:textField.text];
+- (void)saveLocationName:(NSString*)locationName
+{
+    [_currentSpot setName:locationName];
     
     //tracking
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
@@ -243,7 +221,7 @@
     [client insertSpot:_currentSpot];
     
     //table
-    [_spotManager addSpot:_currentSpot];
+    [_spotManager refreshSpots];
     
     int index;
     if (_spotManager.spots.count == 1 || _spotManager.spots.count == 2) {
@@ -251,19 +229,21 @@
     }else{
         index = _spotManager.spots.count - 1;
     }
+    index = 0;
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
-
-     
+    
+    
     //テーブル更新
     for (int i = 0; i < _spotManager.spots.count; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
         [self updateCell:cell atIndexPath:indexPath];
     }
-    
-     
 }
+
+
+
 
 @end

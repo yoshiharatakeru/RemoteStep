@@ -16,14 +16,19 @@
     __weak IBOutlet UILabel *_lb_distance;
     __weak IBOutlet UIButton *_btDelete;
     __weak IBOutlet UISearchBar *_searchBar;
-    __weak IBOutlet UIView *_blackView;
+    __weak IBOutlet UIButton *_btn_black_view;
+    __weak IBOutlet UIButton *_btn_map2;
+    __weak IBOutlet UIButton *_btn_map1;
     
+    //model
     RSLocationManager *_locationManager;
+
+    //constraint
+    __weak IBOutlet NSLayoutConstraint *_topSpace_serchBar;
+    
     float _diff_x, _diff_y;
     float _distance;
     MKMapView *_selectedMap;
-    
-    __weak IBOutlet NSLayoutConstraint *_topSpace_serchBar;
 }
 
 @end
@@ -69,6 +74,9 @@
     
     //status bar
     [UIApplication sharedApplication].statusBarHidden = YES;
+    
+    //black_view
+    [_btn_black_view addTarget:self action:@selector(btnBlackViewPressed) forControlEvents:UIControlEventTouchDown];
     
 }
 
@@ -320,6 +328,9 @@
     if (_selectedMap == _mapView1) {
         //switch to map2
         _selectedMap = _mapView2;
+        _btn_map2.selected = YES;
+        _btn_map1.selected = NO;
+        
         [UIView animateWithDuration:0.3 animations:^{
             _mapView2.alpha = 1;
             _mapView2.userInteractionEnabled = YES;
@@ -330,6 +341,9 @@
     else{
         //switch to map1
         _selectedMap = _mapView1;
+        _btn_map1.selected  = YES;
+        _btn_map2.selected = NO;
+        
         [UIView animateWithDuration:0.3 animations:^{
             _mapView2.alpha = 0;
             _mapView1.userInteractionEnabled = YES;
@@ -343,7 +357,7 @@
 {
     [UIView animateWithDuration:0.3 animations:^{
         _topSpace_serchBar.constant = 0;
-        _blackView.alpha = 0.5;
+        _btn_black_view.alpha = 1;
     } completion:^(BOOL finished) {
         [_searchBar becomeFirstResponder];
     }];
@@ -355,7 +369,7 @@
 {
     [UIView animateWithDuration:0.3 animations:^{
         _topSpace_serchBar.constant = _searchBar.bounds.size.height * -1;
-        _blackView.alpha = 0;
+        _btn_black_view.alpha = 0;
     } completion:^(BOOL finished) {
         [_searchBar resignFirstResponder];
     }];
@@ -416,6 +430,12 @@
 #pragma mark
 #pragma mark button action
 
+- (void)btnBlackViewPressed
+{
+    [self hideSearchBar];
+    
+}
+
 - (void)btDeletePressed:(UIButton*)bt
 {
     [_locationManager removeAllLocations];
@@ -440,6 +460,7 @@
 - (IBAction)btMap1Pressed:(id)sender {
     
     if (_selectedMap == _mapView1) {
+        _mapView1.mapType = (_mapView1.mapType == MKMapTypeStandard)? MKMapTypeSatellite:MKMapTypeStandard;
         return;
     }
     
@@ -455,6 +476,7 @@
 - (IBAction)btMap2Pressed:(id)sender {
     
     if (_selectedMap == _mapView2) {
+        _mapView2.mapType = (_mapView2.mapType == MKMapTypeStandard)? MKMapTypeSatellite:MKMapTypeStandard;
         return;
     }
     
