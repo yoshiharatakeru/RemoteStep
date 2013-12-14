@@ -46,6 +46,12 @@
 }
 
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [_tf_locationName becomeFirstResponder];
+    
+}
+
 - (void)didMoveToParentViewController:(UIViewController *)parent
 {
     self.view.alpha = 0;

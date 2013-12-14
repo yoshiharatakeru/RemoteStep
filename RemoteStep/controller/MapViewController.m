@@ -78,6 +78,7 @@
     //black_view
     [_btn_black_view addTarget:self action:@selector(btnBlackViewPressed) forControlEvents:UIControlEventTouchDown];
     
+    
 }
 
 
@@ -231,8 +232,8 @@
     float dis = [self calculateDistanceFromLocation1:new_location.location toLocation2:previous.location];
     _distance += dis;
     
-    _lb_distance.text = [NSString stringWithFormat:@"%.1fkm",_distance];
-    self.navigationController.title = [NSString stringWithFormat:@"%.1fkm", _distance];
+    //_lb_distance.text = [NSString stringWithFormat:@"%.1fkm",_distance];
+    self.title = [NSString stringWithFormat:@"%.1fkm", _distance];
     
     
     //クリアボタン表示
@@ -451,7 +452,8 @@
 
     
     _distance = 0;
-    _lb_distance.text = [NSString stringWithFormat:@"%f",_distance];
+    //_lb_distance.text = [NSString stringWithFormat:@"%f",_distance];
+    self.title = @"0km";
     
     _btDelete.alpha = 0;
 }

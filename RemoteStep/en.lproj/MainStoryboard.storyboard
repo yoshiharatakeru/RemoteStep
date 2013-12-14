@@ -188,7 +188,7 @@
             </objects>
             <point key="canvasLocation" x="-195" y="-128"/>
         </scene>
-        <!--List View Controller-->
+        <!--List View Controller - リスト-->
         <scene sceneID="1Bn-fL-RZf">
             <objects>
                 <viewController storyboardIdentifier="ListViewController" id="xq0-wf-2Ba" customClass="ListViewController" sceneMemberID="viewController">
@@ -264,7 +264,7 @@
                             <constraint firstItem="Lhh-n7-K12" firstAttribute="trailing" secondItem="crn-9u-u9d" secondAttribute="trailing" id="uRC-6v-Dd0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gTN-Ob-8tv">
+                    <navigationItem key="navigationItem" title="リスト" id="gTN-Ob-8tv">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="MnF-p3-p6g">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Udg-hi-Ubj">
                                 <rect key="frame" x="16" y="0.0" width="80" height="44"/>
@@ -403,7 +403,7 @@
             </objects>
             <point key="canvasLocation" x="-981" y="836"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Map View Controller - 0km-->
         <scene sceneID="Hac-tV-TJD">
             <objects>
                 <viewController storyboardIdentifier="MapViewController" id="N7U-Hw-TKf" customClass="MapViewController" sceneMemberID="viewController">
@@ -524,7 +524,7 @@
                             <constraint firstAttribute="bottom" secondItem="bKy-Lr-nEA" secondAttribute="bottom" id="zbF-zk-vQH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7Ks-Cy-kUH">
+                    <navigationItem key="navigationItem" title="0km" id="7Ks-Cy-kUH">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="JyJ-0t-oO2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Vh-si-vSJ">
                                 <rect key="frame" x="16" y="0.0" width="80" height="44"/>
@@ -580,16 +580,12 @@
         <image name="bt_add.png" width="44" height="44"/>
         <image name="bt_delete.png" width="31" height="31"/>
         <image name="bt_list.png" width="31" height="31"/>
-        <image name="bt_list.png" width="31" height="31"/>
-        <image name="bt_search.png" width="31" height="31"/>
         <image name="bt_search.png" width="31" height="31"/>
         <image name="btn_back.png" width="80" height="44"/>
         <image name="btn_clear.png" width="80" height="48"/>
         <image name="btn_list.png" width="80" height="44"/>
         <image name="btn_map1.png" width="160" height="48"/>
-        <image name="btn_map1.png" width="160" height="48"/>
         <image name="btn_map1_off.png" width="160" height="48"/>
-        <image name="btn_map2.png" width="160" height="48"/>
         <image name="btn_map2.png" width="160" height="48"/>
         <image name="btn_map2_off.png" width="160" height="48"/>
         <image name="btn_plus.png" width="80" height="44"/>
