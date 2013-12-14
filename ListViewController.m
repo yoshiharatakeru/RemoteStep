@@ -185,8 +185,7 @@
     //DBから消去
     [client deleteSpot:_spotManager.spots[bt.indexPath.row]];
     
-    //テーブルから消去
-    [_spotManager removeSpotAtIndex:bt.indexPath.row];
+    [_spotManager refreshSpots];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:bt.indexPath.row inSection:0];
     NSLog(@"indexpath.row:%d",bt.indexPath.row);
