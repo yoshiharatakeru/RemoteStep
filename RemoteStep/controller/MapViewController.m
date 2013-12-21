@@ -293,6 +293,16 @@
     MKPolyline *line2 = [MKPolyline polylineWithPoints:points2 count:_locationManager.locations.count];
     [_mapView2 addOverlay:line2];
     
+    //annotation(dot)
+    for (RSLocation *locationModel in _locationManager.locations) {
+        
+        RSAnnotation *annotation = [[RSAnnotation alloc]initWithMapPoint:MKMapPointMake(locationModel.mapPoint.x+_diff_x, locationModel.mapPoint.y+_diff_y) image:[UIImage imageNamed:@"dot_red"]];
+        
+        [_mapView2 addAnnotation:annotation];
+        
+        
+    }
+    
 }
 
 

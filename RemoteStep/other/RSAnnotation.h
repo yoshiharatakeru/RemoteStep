@@ -16,5 +16,6 @@
 
 
 - (id)initWithLocationCoordinate:(CLLocationCoordinate2D)coordinate image:(UIImage*)image;
+- (id)initWithMapPoint:(MKMapPoint)point image:(UIImage*)image;
 
 @end

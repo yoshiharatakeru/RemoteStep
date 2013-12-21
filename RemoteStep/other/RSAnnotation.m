@@ -25,4 +25,19 @@
     
 }
 
+- (id)initWithMapPoint:(MKMapPoint)point image:(UIImage*)image
+{
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    _image = image;
+    _coordinate = MKCoordinateForMapPoint(point);
+    
+    return self;
+    
+}
+
 @end
