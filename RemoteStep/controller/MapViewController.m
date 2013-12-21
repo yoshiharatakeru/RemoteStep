@@ -13,7 +13,6 @@
     //outlet
     __weak IBOutlet MKMapView *_mapView1;
     __weak IBOutlet MKMapView *_mapView2;
-    __weak IBOutlet UILabel *_lb_distance;
     __weak IBOutlet UIButton *_btDelete;
     __weak IBOutlet UISearchBar *_searchBar;
     __weak IBOutlet UIButton *_btn_black_view;
@@ -24,11 +23,11 @@
     RSLocationManager *_locationManager;
 
     //constraint
-    __weak IBOutlet NSLayoutConstraint *_topSpace_serchBar;
     
     float _diff_x, _diff_y;
     float _distance;
     MKMapView *_selectedMap;
+    UILabel   *_lb_distance;
 }
 
 @end
@@ -64,23 +63,36 @@
     [_btDelete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
 
     //search bar
-    _topSpace_serchBar.constant = _searchBar.bounds.size.height * -1;
     _searchBar.delegate = self;
     _searchBar.showsCancelButton = YES;
+    _searchBar.alpha = 0;
     
     //最初はmap1が選択されている
     _selectedMap = _mapView2;
     [self btMap1Pressed:nil];
     
-    //status bar
-    [UIApplication sharedApplication].statusBarHidden = YES;
-    
+
     //black_view
     [_btn_black_view addTarget:self action:@selector(btnBlackViewPressed) forControlEvents:UIControlEventTouchDown];
     
+    //navigationBar
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0 green:0.70 blue:0.95 alpha:1]];
+    
+    //title
+    _lb_distance = [[UILabel alloc]initWithFrame:CGRectMake(50, 14, 150, 50)];
+    _lb_distance.backgroundColor = [UIColor clearColor];
+    _lb_distance.font = [UIFont boldSystemFontOfSize:23];
+    _lb_distance.textColor = [UIColor whiteColor];
+    _lb_distance.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView= _lb_distance;
+    _lb_distance.text = @"0km";
+    [_lb_distance sizeToFit];
+    
+    //status bar
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     
 }
-
 
 
 
@@ -233,7 +245,7 @@
     _distance += dis;
     
     //_lb_distance.text = [NSString stringWithFormat:@"%.1fkm",_distance];
-    self.title = [NSString stringWithFormat:@"%.1fkm", _distance];
+    _lb_distance.text = [NSString stringWithFormat:@"%.1fkm", _distance];
     
     
     //クリアボタン表示
@@ -358,7 +370,7 @@
 - (void)showSearchBar
 {
     [UIView animateWithDuration:0.3 animations:^{
-        _topSpace_serchBar.constant = 0;
+        _searchBar.alpha = 1;
         _btn_black_view.alpha = 1;
     } completion:^(BOOL finished) {
         [_searchBar becomeFirstResponder];
@@ -370,7 +382,7 @@
 - (void)hideSearchBar
 {
     [UIView animateWithDuration:0.3 animations:^{
-        _topSpace_serchBar.constant = _searchBar.bounds.size.height * -1;
+        _searchBar.alpha = 0;
         _btn_black_view.alpha = 0;
     } completion:^(BOOL finished) {
         [_searchBar resignFirstResponder];
@@ -453,7 +465,7 @@
     
     _distance = 0;
     //_lb_distance.text = [NSString stringWithFormat:@"%f",_distance];
-    self.title = @"0km";
+    _lb_distance.text = @"0km";
     
     _btDelete.alpha = 0;
 }

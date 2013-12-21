@@ -403,7 +403,7 @@
             </objects>
             <point key="canvasLocation" x="-981" y="836"/>
         </scene>
-        <!--Map View Controller - 0km-->
+        <!--Map View Controller-->
         <scene sceneID="Hac-tV-TJD">
             <objects>
                 <viewController storyboardIdentifier="MapViewController" id="N7U-Hw-TKf" customClass="MapViewController" sceneMemberID="viewController">
@@ -416,63 +416,63 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IHP-zn-yhW">
-                                <rect key="frame" x="0.0" y="44" width="320" height="472"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ALd-VT-sTW">
-                                <rect key="frame" x="0.0" y="44" width="320" height="472"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-Lr-nEA">
-                                <rect key="frame" x="0.0" y="515" width="320" height="53"/>
+                            <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-Lr-nEA">
+                                <rect key="frame" x="0.0" y="516" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25F-LV-GbX">
-                                        <rect key="frame" x="0.0" y="5" width="160" height="48"/>
+                                    <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25F-LV-GbX">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="KPo-pu-Sf0"/>
+                                            <constraint firstAttribute="height" constant="52" id="KPo-pu-Sf0"/>
                                             <constraint firstAttribute="width" constant="160" id="t8G-1T-mQs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" image="btn_map1_off.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="btn_map1.png"/>
-                                        <state key="highlighted" image="btn_map1.png"/>
+                                        <state key="selected" image="btn_map1_on.png"/>
+                                        <state key="highlighted" image="btn_map1_on.png"/>
                                         <connections>
                                             <action selector="btMap1Pressed:" destination="N7U-Hw-TKf" eventType="touchUpInside" id="4lK-UT-IYm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysd-SJ-fW1">
-                                        <rect key="frame" x="160" y="5" width="160" height="48"/>
+                                    <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysd-SJ-fW1">
+                                        <rect key="frame" x="160" y="0.0" width="160" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="Owe-rw-13n"/>
+                                            <constraint firstAttribute="height" constant="52" id="Owe-rw-13n"/>
                                             <constraint firstAttribute="width" constant="160" id="wny-n7-fMi"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" image="btn_map2_off.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="btn_map2.png"/>
-                                        <state key="highlighted" image="btn_map2.png"/>
+                                        <state key="selected" image="btn_map2_on.png"/>
+                                        <state key="highlighted" image="btn_map2_on.png"/>
                                         <connections>
                                             <action selector="btMap2Pressed:" destination="N7U-Hw-TKf" eventType="touchUpInside" id="Aze-RM-4yE"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.47450980392156861" green="0.83921568627450982" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.82352941176470584" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="25F-LV-GbX" firstAttribute="leading" secondItem="bKy-Lr-nEA" secondAttribute="leading" id="5dh-pn-Sve"/>
                                     <constraint firstAttribute="bottom" secondItem="25F-LV-GbX" secondAttribute="bottom" id="6cq-Vi-dLe"/>
-                                    <constraint firstAttribute="height" constant="53" id="859-KU-YBW"/>
+                                    <constraint firstAttribute="height" constant="52" id="859-KU-YBW"/>
                                     <constraint firstAttribute="bottom" secondItem="ysd-SJ-fW1" secondAttribute="bottom" id="aKt-NQ-p1y"/>
                                     <constraint firstAttribute="trailing" secondItem="ysd-SJ-fW1" secondAttribute="trailing" id="jl3-ii-fgF"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTf-GN-4ol">
-                                <rect key="frame" x="0.0" y="453" width="80" height="48"/>
+                                <rect key="frame" x="0.0" y="454" width="80" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Jtj-af-n6R"/>
@@ -484,50 +484,44 @@
                                 </state>
                             </button>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rv6-qd-Mhu">
-                                <rect key="frame" x="0.0" y="44" width="320" height="471"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" backgroundImage="back_black.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="JKh-Za-5jX">
-                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKh-Za-5jX">
+                                <rect key="frame" x="0.0" y="63" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="4mH-a9-Osz"/>
-                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bKy-Lr-nEA" secondAttribute="trailing" id="0hj-Rl-etf"/>
+                            <constraint firstAttribute="trailing" secondItem="IHP-zn-yhW" secondAttribute="trailing" id="2ku-w8-zPY"/>
                             <constraint firstItem="tTf-GN-4ol" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="4KN-Oe-qep"/>
-                            <constraint firstItem="IHP-zn-yhW" firstAttribute="top" secondItem="Img-H3-Gwt" secondAttribute="bottom" id="5JX-iL-6gh"/>
-                            <constraint firstItem="JKh-Za-5jX" firstAttribute="top" secondItem="Img-H3-Gwt" secondAttribute="bottom" id="Afj-V5-fin"/>
-                            <constraint firstItem="Rv6-qd-Mhu" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="CO8-el-b9a"/>
-                            <constraint firstItem="IHP-zn-yhW" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="EHK-Pd-jpw"/>
-                            <constraint firstItem="b21-D4-hdq" firstAttribute="top" secondItem="ALd-VT-sTW" secondAttribute="bottom" constant="52" id="Rvd-Dc-sp1"/>
-                            <constraint firstItem="bKy-Lr-nEA" firstAttribute="top" secondItem="Rv6-qd-Mhu" secondAttribute="bottom" id="Suk-PF-2af"/>
+                            <constraint firstAttribute="trailing" secondItem="Rv6-qd-Mhu" secondAttribute="trailing" id="6Nf-1A-fKJ"/>
+                            <constraint firstItem="IHP-zn-yhW" firstAttribute="top" secondItem="rBe-EP-zS7" secondAttribute="top" id="983-CP-aZj"/>
+                            <constraint firstItem="b21-D4-hdq" firstAttribute="top" secondItem="ALd-VT-sTW" secondAttribute="bottom" id="BB5-0v-9h8"/>
                             <constraint firstItem="bKy-Lr-nEA" firstAttribute="top" secondItem="tTf-GN-4ol" secondAttribute="bottom" constant="14" id="UW0-x9-TLY"/>
-                            <constraint firstItem="JKh-Za-5jX" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="XLR-dD-yUb"/>
                             <constraint firstItem="bKy-Lr-nEA" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="XpN-TA-7jL"/>
-                            <constraint firstItem="b21-D4-hdq" firstAttribute="top" secondItem="IHP-zn-yhW" secondAttribute="bottom" constant="52" id="Z1x-AV-UJk"/>
-                            <constraint firstAttribute="trailing" secondItem="Rv6-qd-Mhu" secondAttribute="trailing" id="bOD-ZS-jyf"/>
-                            <constraint firstAttribute="trailing" secondItem="ALd-VT-sTW" secondAttribute="trailing" id="nTN-es-UrI"/>
-                            <constraint firstAttribute="trailing" secondItem="JKh-Za-5jX" secondAttribute="trailing" id="osQ-Db-ZEk"/>
-                            <constraint firstItem="ALd-VT-sTW" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="p1d-1T-MYW"/>
-                            <constraint firstItem="Rv6-qd-Mhu" firstAttribute="top" secondItem="Img-H3-Gwt" secondAttribute="bottom" id="vh1-Ut-uSj"/>
-                            <constraint firstAttribute="trailing" secondItem="IHP-zn-yhW" secondAttribute="trailing" id="ykj-Ny-rv5"/>
-                            <constraint firstItem="ALd-VT-sTW" firstAttribute="top" secondItem="Img-H3-Gwt" secondAttribute="bottom" id="zNP-Am-7zv"/>
+                            <constraint firstAttribute="trailing" secondItem="ALd-VT-sTW" secondAttribute="trailing" id="j3m-pW-4Ca"/>
+                            <constraint firstItem="ALd-VT-sTW" firstAttribute="top" secondItem="rBe-EP-zS7" secondAttribute="top" id="lJj-h4-Sab"/>
+                            <constraint firstItem="ALd-VT-sTW" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="o93-x9-qEO"/>
+                            <constraint firstAttribute="bottom" secondItem="IHP-zn-yhW" secondAttribute="bottom" id="oz6-g7-eEW"/>
+                            <constraint firstItem="IHP-zn-yhW" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="pNu-bM-mo2"/>
+                            <constraint firstItem="Rv6-qd-Mhu" firstAttribute="top" secondItem="rBe-EP-zS7" secondAttribute="top" id="qrU-J1-USw"/>
+                            <constraint firstAttribute="bottom" secondItem="Rv6-qd-Mhu" secondAttribute="bottom" id="rvy-lr-al7"/>
+                            <constraint firstItem="Rv6-qd-Mhu" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="xhy-BI-f88"/>
                             <constraint firstAttribute="bottom" secondItem="bKy-Lr-nEA" secondAttribute="bottom" id="zbF-zk-vQH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="0km" id="7Ks-Cy-kUH">
+                    <navigationItem key="navigationItem" id="7Ks-Cy-kUH">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="JyJ-0t-oO2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Vh-si-vSJ">
-                                <rect key="frame" x="16" y="0.0" width="80" height="44"/>
+                                <rect key="frame" x="16" y="0.0" width="70" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="FdD-1q-PRc"/>
@@ -557,7 +551,6 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="_btDelete" destination="tTf-GN-4ol" id="ZcW-iP-w1C"/>
                         <outlet property="_btn_black_view" destination="Rv6-qd-Mhu" id="Kkc-fB-FVu"/>
@@ -566,7 +559,6 @@
                         <outlet property="_mapView1" destination="IHP-zn-yhW" id="9lb-jj-vlp"/>
                         <outlet property="_mapView2" destination="ALd-VT-sTW" id="eT0-Uf-ncz"/>
                         <outlet property="_searchBar" destination="JKh-Za-5jX" id="Gkl-Ua-Rhi"/>
-                        <outlet property="_topSpace_serchBar" destination="Afj-V5-fin" id="Xlh-8s-5Pl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnV-Mj-8A6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -580,17 +572,21 @@
         <image name="bt_add.png" width="44" height="44"/>
         <image name="bt_delete.png" width="31" height="31"/>
         <image name="bt_list.png" width="31" height="31"/>
+        <image name="bt_list.png" width="31" height="31"/>
         <image name="bt_search.png" width="31" height="31"/>
-        <image name="btn_back.png" width="80" height="44"/>
+        <image name="bt_search.png" width="31" height="31"/>
+        <image name="btn_back.png" width="70" height="44"/>
         <image name="btn_clear.png" width="80" height="48"/>
-        <image name="btn_list.png" width="80" height="44"/>
-        <image name="btn_map1.png" width="160" height="48"/>
-        <image name="btn_map1_off.png" width="160" height="48"/>
-        <image name="btn_map2.png" width="160" height="48"/>
-        <image name="btn_map2_off.png" width="160" height="48"/>
-        <image name="btn_plus.png" width="80" height="44"/>
+        <image name="btn_list.png" width="70" height="44"/>
+        <image name="btn_map1_off.png" width="160" height="51"/>
+        <image name="btn_map1_on.png" width="160" height="51"/>
+        <image name="btn_map1_on.png" width="160" height="51"/>
+        <image name="btn_map2_off.png" width="160" height="51"/>
+        <image name="btn_map2_on.png" width="160" height="51"/>
+        <image name="btn_map2_on.png" width="160" height="51"/>
+        <image name="btn_plus.png" width="70" height="44"/>
         <image name="btn_remove.png" width="40" height="40"/>
-        <image name="btn_search.png" width="80" height="44"/>
+        <image name="btn_search.png" width="70" height="44"/>
         <image name="separator.png" width="320" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

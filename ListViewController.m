@@ -39,11 +39,13 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    
-    
     //保存内容取得
     _spotManager = [RSSpotManager sharedManager];
     [_spotManager refreshSpots];
+    
+    //navigation bar
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+
     
 }
 
