@@ -24,6 +24,7 @@
 		051DD47D186554D9001EB492 /* btn_map2_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051DD479186554D9001EB492 /* btn_map2_off@2x.png */; };
 		051DD47E186554D9001EB492 /* btn_map2_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051DD47A186554D9001EB492 /* btn_map2_on@2x.png */; };
 		051DD4801865552E001EB492 /* btn_plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051DD47F1865552E001EB492 /* btn_plus@2x.png */; };
+		051DD4821865773F001EB492 /* btn_switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051DD4811865773F001EB492 /* btn_switch@2x.png */; };
 		0525257F178303B9001485A8 /* RSDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0525257E178303B9001485A8 /* RSDBClient.m */; };
 		05322D0D1773068D000AA1ED /* RSLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D0C1773068D000AA1ED /* RSLocations.m */; };
 		05322D111773069B000AA1ED /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05322D101773069B000AA1ED /* MainViewController.m */; };
@@ -90,6 +91,7 @@
 		051DD479186554D9001EB492 /* btn_map2_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_map2_off@2x.png"; sourceTree = "<group>"; };
 		051DD47A186554D9001EB492 /* btn_map2_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_map2_on@2x.png"; sourceTree = "<group>"; };
 		051DD47F1865552E001EB492 /* btn_plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_plus@2x.png"; sourceTree = "<group>"; };
+		051DD4811865773F001EB492 /* btn_switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_switch@2x.png"; sourceTree = "<group>"; };
 		0525257D178303B9001485A8 /* RSDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDBClient.h; sourceTree = "<group>"; };
 		0525257E178303B9001485A8 /* RSDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDBClient.m; sourceTree = "<group>"; };
 		05322D0B1773068D000AA1ED /* RSLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSLocations.h; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				051DD46B18648C5E001EB492 /* btn_back@2x.png */,
 				051DD46D18648C6E001EB492 /* btn_back@2x.png */,
+				051DD4811865773F001EB492 /* btn_switch@2x.png */,
 				055D3AC0185C23BF0050C9EA /* back_black@2x.png */,
 				051DD477186554D9001EB492 /* btn_map1_off@2x.png */,
 				051DD478186554D9001EB492 /* btn_map1_on@2x.png */,
@@ -428,6 +431,7 @@
 				051DD47C186554D9001EB492 /* btn_map1_on@2x.png in Resources */,
 				0580A4A9178AD10F0057AF7D /* separator@2x.png in Resources */,
 				051DD47218648C80001EB492 /* btn_list@2x.png in Resources */,
+				051DD4821865773F001EB492 /* btn_switch@2x.png in Resources */,
 				05E5DE151859B82D000545AE /* dot_gray@2x.png in Resources */,
 				051DD47B186554D9001EB492 /* btn_map1_off@2x.png in Resources */,
 				055D3AC1185C23BF0050C9EA /* back_black@2x.png in Resources */,

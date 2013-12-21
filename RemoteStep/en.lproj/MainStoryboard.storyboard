@@ -472,11 +472,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTf-GN-4ol">
-                                <rect key="frame" x="0.0" y="454" width="80" height="48"/>
+                                <rect key="frame" x="240" y="454" width="80" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Jtj-af-n6R"/>
-                                    <constraint firstAttribute="height" constant="48" id="f29-1q-fwd"/>
+                                    <constraint firstAttribute="width" constant="80" id="2c7-fI-HGv"/>
+                                    <constraint firstAttribute="height" constant="48" id="a83-eh-3yW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="btn_clear.png">
@@ -491,6 +491,20 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fld-Lx-Au9">
+                                <rect key="frame" x="9" y="74" width="61" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="GMP-d6-1gL"/>
+                                    <constraint firstAttribute="width" constant="61" id="iwO-QC-v6P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="SAT" backgroundImage="btn_switch.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="btn_switch.png"/>
+                            </button>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKh-Za-5jX">
                                 <rect key="frame" x="0.0" y="63" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -501,12 +515,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bKy-Lr-nEA" secondAttribute="trailing" id="0hj-Rl-etf"/>
                             <constraint firstAttribute="trailing" secondItem="IHP-zn-yhW" secondAttribute="trailing" id="2ku-w8-zPY"/>
-                            <constraint firstItem="tTf-GN-4ol" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="4KN-Oe-qep"/>
+                            <constraint firstItem="bKy-Lr-nEA" firstAttribute="top" secondItem="tTf-GN-4ol" secondAttribute="bottom" constant="14" id="4rA-iP-6HD"/>
                             <constraint firstAttribute="trailing" secondItem="Rv6-qd-Mhu" secondAttribute="trailing" id="6Nf-1A-fKJ"/>
                             <constraint firstItem="IHP-zn-yhW" firstAttribute="top" secondItem="rBe-EP-zS7" secondAttribute="top" id="983-CP-aZj"/>
                             <constraint firstItem="b21-D4-hdq" firstAttribute="top" secondItem="ALd-VT-sTW" secondAttribute="bottom" id="BB5-0v-9h8"/>
-                            <constraint firstItem="bKy-Lr-nEA" firstAttribute="top" secondItem="tTf-GN-4ol" secondAttribute="bottom" constant="14" id="UW0-x9-TLY"/>
+                            <constraint firstItem="Fld-Lx-Au9" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" constant="9" id="QJU-0L-aOF"/>
+                            <constraint firstItem="Fld-Lx-Au9" firstAttribute="top" secondItem="rBe-EP-zS7" secondAttribute="top" constant="74" id="XJk-i8-HuQ"/>
                             <constraint firstItem="bKy-Lr-nEA" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="XpN-TA-7jL"/>
+                            <constraint firstAttribute="trailing" secondItem="tTf-GN-4ol" secondAttribute="trailing" id="gwV-xE-bKN"/>
                             <constraint firstAttribute="trailing" secondItem="ALd-VT-sTW" secondAttribute="trailing" id="j3m-pW-4Ca"/>
                             <constraint firstItem="ALd-VT-sTW" firstAttribute="top" secondItem="rBe-EP-zS7" secondAttribute="top" id="lJj-h4-Sab"/>
                             <constraint firstItem="ALd-VT-sTW" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="o93-x9-qEO"/>
@@ -556,8 +572,10 @@
                         <outlet property="_btn_black_view" destination="Rv6-qd-Mhu" id="Kkc-fB-FVu"/>
                         <outlet property="_btn_map1" destination="25F-LV-GbX" id="n0T-De-7rJ"/>
                         <outlet property="_btn_map2" destination="ysd-SJ-fW1" id="b4S-Qk-R0y"/>
+                        <outlet property="_btn_switch" destination="Fld-Lx-Au9" id="Dyi-gR-O9r"/>
                         <outlet property="_mapView1" destination="IHP-zn-yhW" id="9lb-jj-vlp"/>
                         <outlet property="_mapView2" destination="ALd-VT-sTW" id="eT0-Uf-ncz"/>
+                        <outlet property="_rightSpace_btClear" destination="gwV-xE-bKN" id="V8l-hk-c9f"/>
                         <outlet property="_searchBar" destination="JKh-Za-5jX" id="Gkl-Ua-Rhi"/>
                     </connections>
                 </viewController>
@@ -587,6 +605,8 @@
         <image name="btn_plus.png" width="70" height="44"/>
         <image name="btn_remove.png" width="40" height="40"/>
         <image name="btn_search.png" width="70" height="44"/>
+        <image name="btn_switch.png" width="61" height="27"/>
+        <image name="btn_switch.png" width="61" height="27"/>
         <image name="separator.png" width="320" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

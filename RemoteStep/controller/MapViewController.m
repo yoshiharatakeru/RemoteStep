@@ -18,6 +18,7 @@
     __weak IBOutlet UIButton *_btn_black_view;
     __weak IBOutlet UIButton *_btn_map2;
     __weak IBOutlet UIButton *_btn_map1;
+    __weak IBOutlet UIButton *_btn_switch;
     
     //model
     RSLocationManager *_locationManager;
@@ -28,6 +29,7 @@
     float _distance;
     MKMapView *_selectedMap;
     UILabel   *_lb_distance;
+    __weak IBOutlet NSLayoutConstraint *_rightSpace_btClear;
 }
 
 @end
@@ -58,10 +60,10 @@
     //model
     _locationManager = [RSLocationManager new];
     
-    //button
-    _btDelete.alpha = 0;
+    //button_clear
     [_btDelete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
-
+    _rightSpace_btClear.constant = _btDelete.bounds.size.width * -1;
+    
     //search bar
     _searchBar.delegate = self;
     _searchBar.showsCancelButton = YES;
@@ -71,7 +73,6 @@
     _selectedMap = _mapView2;
     [self btMap1Pressed:nil];
     
-
     //black_view
     [_btn_black_view addTarget:self action:@selector(btnBlackViewPressed) forControlEvents:UIControlEventTouchDown];
     
@@ -90,6 +91,9 @@
     
     //status bar
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    //button swithch mapType
+    [_btn_switch addTarget:self action:@selector(btnSwitchPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     
 }
@@ -185,6 +189,11 @@
 
 - (void)tapMap:(UITapGestureRecognizer*)sender
 {
+    //クリアボタンの表示
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _rightSpace_btClear.constant = 0;
+        [self.view layoutIfNeeded];
+    } completion:nil];
     
     //縮尺を合わせる
     _mapView2.userInteractionEnabled = YES;
@@ -241,15 +250,7 @@
     //_lb_distance.text = [NSString stringWithFormat:@"%.1fkm",_distance];
     _lb_distance.text = [NSString stringWithFormat:@"%.1fkm", _distance];
     
-    
-    //クリアボタン表示
-    [UIView animateWithDuration:0.3 animations:^{
-        _btDelete.alpha = 1;
-    }];
-    
-    
-
-
+  
 }
 
 
@@ -449,6 +450,12 @@
 
 - (void)btDeletePressed:(UIButton*)bt
 {
+    //ボタン隠す
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _rightSpace_btClear.constant = _btDelete.bounds.size.width * -1;
+        [self.view layoutIfNeeded];
+    } completion:nil];
+    
     [_locationManager removeAllLocations];
     
     //overlay
@@ -459,12 +466,9 @@
     [_mapView1 removeAnnotations:_mapView1.annotations];
     [_mapView2 removeAnnotations:_mapView2.annotations];
 
-    
     _distance = 0;
-    //_lb_distance.text = [NSString stringWithFormat:@"%f",_distance];
-    _lb_distance.text = @"0km";
+    _lb_distance.text = @"0.0km";
     
-    _btDelete.alpha = 0;
 }
 
 
@@ -472,11 +476,9 @@
 - (IBAction)btMap1Pressed:(id)sender {
     
     if (_selectedMap == _mapView1) {
-        _mapView1.mapType = (_mapView1.mapType == MKMapTypeStandard)? MKMapTypeSatellite:MKMapTypeStandard;
         return;
     }
     
-    //button appearancen
     
     //switch map
     [self switchMap];
@@ -488,7 +490,6 @@
 - (IBAction)btMap2Pressed:(id)sender {
     
     if (_selectedMap == _mapView2) {
-        _mapView2.mapType = (_mapView2.mapType == MKMapTypeStandard)? MKMapTypeSatellite:MKMapTypeStandard;
         return;
     }
     
@@ -546,6 +547,21 @@
     }
 }
 
+
+- (void)btnSwitchPressed:(UIButton*)bt
+{
+    if (_mapView1.mapType == MKMapTypeStandard) {
+        _mapView1.mapType = MKMapTypeSatellite;
+        _mapView2.mapType = MKMapTypeSatellite;
+        [bt setTitle:@"MAP" forState:UIControlStateNormal];
+    
+    }else{
+        _mapView1.mapType = MKMapTypeStandard;
+        _mapView2.mapType = MKMapTypeStandard;
+        [bt setTitle:@"SAT" forState:UIControlStateNormal];
+    }
+    
+}
 
 
 

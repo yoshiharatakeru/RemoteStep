@@ -74,6 +74,104 @@
     }
     
     //デフォルトのロケーションを登録
+    RSDBClient *client = [RSDBClient sharedInstance];
+    [client createTable];
+    
+    
+    //ナスカの地上絵
+    RSSpot *nazca = RSSpot.new;
+    float lat_nazca = -14.692139;
+    float lng_nazca = -75.148885;
+    
+    CLLocationCoordinate2D coor_nazca = CLLocationCoordinate2DMake(lat_nazca, lng_nazca);
+    MKMapPoint point_nazca = MKMapPointForCoordinate(coor_nazca);
+    
+    NSString *span_nazca = @"0.005";
+    
+    nazca.latitude  = [NSString stringWithFormat:@"%f",lat_nazca];
+    nazca.longitude = [NSString stringWithFormat:@"%f", lng_nazca];
+    nazca.point_x   = [NSString stringWithFormat:@"%f", point_nazca.x];
+    nazca.point_y   = [NSString stringWithFormat:@"%f", point_nazca.y];
+    nazca.span      = span_nazca;
+    nazca.name      = @"ナスカの地上絵";
+    [client insertSpot:nazca];
+    
+    
+    //ピラミッド
+    RSSpot *pyramid = RSSpot.new;
+    float lat_pyramid = 29.976524;
+    float lng_pyramid = 31.130633;
+    
+    CLLocationCoordinate2D coor_pyramid = CLLocationCoordinate2DMake(lat_pyramid, lng_pyramid);
+    MKMapPoint point_pyramid = MKMapPointForCoordinate(coor_pyramid);
+    
+    NSString *span_pyramid = @"0.005";
+    
+    pyramid.latitude  = [NSString stringWithFormat:@"%f",lat_pyramid];
+    pyramid.longitude = [NSString stringWithFormat:@"%f", lng_pyramid];
+    pyramid.point_x   = [NSString stringWithFormat:@"%f", point_pyramid.x];
+    pyramid.point_y   = [NSString stringWithFormat:@"%f", point_pyramid.y];
+    pyramid.span      = span_pyramid;
+    pyramid.name      = @"ギザの3大ピラミッド";
+    [client insertSpot:pyramid];
+    
+    
+    //エアーズロック
+    RSSpot *airsRock = RSSpot.new;
+    float lat_airsrock = -25.3482961366005;
+    float lng_airsrock = 131.0379157419216;
+    
+    CLLocationCoordinate2D coor_airsrock = CLLocationCoordinate2DMake(lat_airsrock, lng_airsrock);
+    MKMapPoint point_airsrock = MKMapPointForCoordinate(coor_airsrock);
+    
+    NSString *span_airsrock = @"0.005";
+    
+    airsRock.latitude  = [NSString stringWithFormat:@"%f",lat_airsrock];
+    airsRock.longitude = [NSString stringWithFormat:@"%f", lng_airsrock];
+    airsRock.point_x   = [NSString stringWithFormat:@"%f", point_airsrock.x];
+    airsRock.point_y   = [NSString stringWithFormat:@"%f", point_airsrock.y];
+    airsRock.span      = span_airsrock;
+    airsRock.name      = @"エアーズロック";
+    [client insertSpot:airsRock];
+    
+    
+    //パリ
+    RSSpot *paris = RSSpot.new;
+    float lat_paris = 48.8549;
+    float lng_paris = 2.3471;
+    
+    CLLocationCoordinate2D coor_paris = CLLocationCoordinate2DMake(lat_paris, lng_paris);
+    MKMapPoint point_paris = MKMapPointForCoordinate(coor_paris);
+    
+    NSString *span_paris = @"0.005";
+    
+    paris.latitude  = [NSString stringWithFormat:@"%f",lat_paris];
+    paris.longitude = [NSString stringWithFormat:@"%f", lng_paris];
+    paris.point_x   = [NSString stringWithFormat:@"%f", point_paris.x];
+    paris.point_y   = [NSString stringWithFormat:@"%f", point_paris.y];
+    paris.span      = span_paris;
+    paris.name      = @"パリ";
+    [client insertSpot:paris];
+    
+    
+    //ロンドン
+    RSSpot *london = RSSpot.new;
+    float lat_london = 51.5107;
+    float lng_london = -0.1197;
+    
+    CLLocationCoordinate2D coor_london = CLLocationCoordinate2DMake(lat_london, lng_london);
+    MKMapPoint point_london = MKMapPointForCoordinate(coor_london);
+    
+    NSString *span_london = @"0.005";
+    
+    london.latitude  = [NSString stringWithFormat:@"%f",lat_london];
+    london.longitude = [NSString stringWithFormat:@"%f", lng_london];
+    london.point_x   = [NSString stringWithFormat:@"%f", point_london.x];
+    london.point_y   = [NSString stringWithFormat:@"%f", point_london.y];
+    london.span      = span_london;
+    london.name      = @"ロンドン";
+    [client insertSpot:london];
+    
     
     //東京
     RSSpot *tokyo = RSSpot.new;
@@ -91,9 +189,6 @@
     tokyo.point_y   = [NSString stringWithFormat:@"%f", point_tokyo.y];
     tokyo.span      = span_tokyo;
     tokyo.name      = @"東京";
-    
-    RSDBClient *client = [RSDBClient sharedInstance];
-    [client createTable];
     [client insertSpot:tokyo];
     
     
@@ -116,36 +211,13 @@
     [client insertSpot:ny];
     
     
-    //ピラミッド
-    RSSpot *pyramid = RSSpot.new;
-    float lat_pyramid = 29.976524;
-    float lng_pyramid = 31.130633;
-    
-    CLLocationCoordinate2D coor_pyramid = CLLocationCoordinate2DMake(lat_pyramid, lng_pyramid);
-    MKMapPoint point_pyramid = MKMapPointForCoordinate(coor_pyramid);
-    
-    NSString *span_pyramid = @"0.005";
-    
-    pyramid.latitude  = [NSString stringWithFormat:@"%f",lat_pyramid];
-    pyramid.longitude = [NSString stringWithFormat:@"%f", lng_pyramid];
-    pyramid.point_x   = [NSString stringWithFormat:@"%f", point_pyramid.x];
-    pyramid.point_y   = [NSString stringWithFormat:@"%f", point_pyramid.y];
-    pyramid.span      = span_pyramid;
-    pyramid.name      = @"ギザの3大ピラミッド";
-    
-    [client insertSpot:pyramid];
-    
-    [ud setObject:@"NO" forKey:@"isFirstLaunch"];
-    [ud synchronize];
     
     
     
     [ud setObject:@"NO" forKey:@"isFirstLaunch"];
     [ud synchronize];
     
-    
- 
-    
+
     
 }
 
