@@ -108,25 +108,19 @@
 #pragma mark mapView delegate
 - (MKOverlayView*)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay{
     
-    if ([overlay isKindOfClass:[MKPolyline class]]) {//line
-        
-        MKPolylineView *view = [[MKPolylineView alloc]initWithOverlay:overlay];
+    //line
+    MKPolylineView *view = [[MKPolylineView alloc]initWithOverlay:overlay];
+    view.fillColor = [UIColor colorWithHue:50 saturation:50 brightness:100 alpha:0.5];
+    if (mapView == _mapView2) {//map2には破線で表示
         NSNumber *lineGapSize = [NSNumber numberWithInteger:10];
-        view.fillColor = [UIColor colorWithHue:50 saturation:50 brightness:100 alpha:0.5];
         view.lineDashPattern = [NSArray arrayWithObjects:lineGapSize,lineGapSize,nil];
-        view.strokeColor = [UIColor darkGrayColor];
-        view.lineWidth = 5.0;
-        return view;
-    
-    }else if ([overlay isKindOfClass:[MKCircle class]]){//circle
-        
-        MKCircleView *view = [[MKCircleView alloc]initWithOverlay:overlay];
-        view.fillColor = [UIColor colorWithHue:50 saturation:50 brightness:50 alpha:1];
-        return view;
     }
     
+    view.strokeColor = [UIColor colorWithRed:0.95 green:0.38 blue:0.07 alpha:1.0];
+    view.lineWidth = 5.0;
+    return view;
+    
     return nil;
-
 }
 
 
@@ -282,17 +276,10 @@
     
     //annotation(dot)
     for (RSLocation *locationModel in _locationManager.locations) {
-        RSAnnotation *annotation = [[RSAnnotation alloc]initWithLocationCoordinate:locationModel.location.coordinate image:[UIImage imageNamed:@"dot1"]];
+        RSAnnotation *annotation = [[RSAnnotation alloc]initWithLocationCoordinate:locationModel.location.coordinate image:[UIImage imageNamed:@"dot_red"]];
         [_mapView1 addAnnotation:annotation];
     }
-    
-    /*
-    //annotation(distance)
-    RSLocation *latestLocation = [_locationManager.locations lastObject];
-    RSAnnotation *annotation_distance = [[RSAnnotation alloc]initWithLocationCoordinate:latestLocation.location.coordinate image:[UIImage imageNamed:@"distance"]];
-    [_mapView1 addAnnotation:annotation_distance];
-     */
-    
+
     
     
     
