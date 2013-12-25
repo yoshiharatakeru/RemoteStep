@@ -95,6 +95,8 @@
     //button swithch mapType
     [_btn_switch addTarget:self action:@selector(btnSwitchPressed:) forControlEvents:UIControlEventTouchUpInside];
     
+    //DAIntroVih
+    
     
 }
 
