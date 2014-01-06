@@ -15,9 +15,11 @@
 #import "RSSpot.h"
 #import "ListViewController.h"
 #import "MBProgressHUD.h"
+#import "EAIntroPage.h"
+#import "EAIntroView.h"
 
 
 @interface MapViewController : UIViewController
-<MKMapViewDelegate, UISearchBarDelegate>
+<MKMapViewDelegate, UISearchBarDelegate, EAIntroDelegate>
 
 @end

@@ -94,13 +94,40 @@
     
     //button swithch mapType
     [_btn_switch addTarget:self action:@selector(btnSwitchPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //DAIntroVih
+ 
     
     
 }
 
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication]setStatusBarHidden:YES];
+    
+    //EAIntroView test
+    self.navigationController.navigationBarHidden = YES;
+    EAIntroPage *page1 = [EAIntroPage page];
+    UIImageView *iv1 = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    iv1.image = [UIImage imageNamed:@"intro_1_568"];
+    page1.customView = iv1;
+    
+    EAIntroPage *page2 = [EAIntroPage page];
+    UIImageView *iv2 = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    iv2.image = [UIImage imageNamed:@"intro_2_568"];
+    page2.customView = iv2;
+    
+    EAIntroPage *page3 = [EAIntroPage page];
+    UIImageView *iv3 = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    iv3.image = [UIImage imageNamed:@"intro_3_568"];
+    page3.customView = iv3;
+    
+    EAIntroView *intro = [[EAIntroView alloc]initWithFrame:self.view.bounds andPages:@[page1, page2, page3]];
+    intro.delegate = self;
+    
+    [intro showInView:self.view animateDuration:0.0];
+    
+}
 
 
 - (void)didReceiveMemoryWarning
@@ -440,6 +467,16 @@
         
     }];
 }
+
+#pragma mark -
+#pragma EAIntroDelegate
+- (void)introDidFinish:(EAIntroView *)introView
+{
+    self.navigationController.navigationBarHidden = NO;
+    [[UIApplication sharedApplication]setStatusBarHidden:NO];
+}
+
+
 
 #pragma mark
 #pragma mark button action
