@@ -18,13 +18,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    //初回起動であることを登録
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary *dic = @{ @"isFirstLaunch" : @"YES" };
+    [ud registerDefaults:dic];
+    
     //tracking 準備
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     [GAI sharedInstance].dispatchInterval = 20;
     [GAI sharedInstance].debug = YES;
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-41355170-2"];
     
-
     [self setDefaultLocations];
      
 
@@ -66,9 +70,6 @@
 - (void)setDefaultLocations{
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSDictionary   *info = @{@"isFirstLaunch":@"YES"};
-    [ud registerDefaults:info];
-    
     if ([[ud objectForKey:@"isFirstLaunch"]isEqualToString:@"NO"]) {
         return;
     }
@@ -210,15 +211,7 @@
     ny.name      = @"ニューヨーク";
     [client insertSpot:ny];
     
-    
-    
-    
-    
-    [ud setObject:@"NO" forKey:@"isFirstLaunch"];
-    [ud synchronize];
-    
-
-    
 }
+
 
 @end

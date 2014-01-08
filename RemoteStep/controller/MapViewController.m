@@ -103,6 +103,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    
+    NSLog(@"isFirstLaunch!:%@",[ud objectForKey:@"isFirstLaunch"]);
+    if ([[ud objectForKey:@"isFirstLaunch"]isEqualToString:@"NO"]) {
+        return;
+    }
+    
     [[UIApplication sharedApplication]setStatusBarHidden:YES];
     
     //EAIntroView test
@@ -126,6 +133,9 @@
     intro.delegate = self;
     
     [intro showInView:self.view animateDuration:0.0];
+    
+    [ud setObject:@"NO" forKey:@"isFirstLaunch"];
+    [ud synchronize];
     
 }
 
