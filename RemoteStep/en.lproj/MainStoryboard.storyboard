@@ -492,17 +492,18 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fld-Lx-Au9">
-                                <rect key="frame" x="9" y="74" width="61" height="27"/>
+                                <rect key="frame" x="0.0" y="64" width="70" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="GMP-d6-1gL"/>
-                                    <constraint firstAttribute="width" constant="61" id="iwO-QC-v6P"/>
+                                    <constraint firstAttribute="height" constant="36" id="Z5j-tT-F82"/>
+                                    <constraint firstAttribute="width" constant="70" id="mnV-Dw-Tmp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="SAT" backgroundImage="btn_switch.png">
+                                <state key="normal" title="SAT" image="btn_sat.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="btn_map.png"/>
                                 <state key="highlighted" image="btn_switch.png"/>
                             </button>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKh-Za-5jX">
@@ -519,14 +520,14 @@
                             <constraint firstAttribute="trailing" secondItem="Rv6-qd-Mhu" secondAttribute="trailing" id="6Nf-1A-fKJ"/>
                             <constraint firstItem="IHP-zn-yhW" firstAttribute="top" secondItem="rBe-EP-zS7" secondAttribute="top" id="983-CP-aZj"/>
                             <constraint firstItem="b21-D4-hdq" firstAttribute="top" secondItem="ALd-VT-sTW" secondAttribute="bottom" id="BB5-0v-9h8"/>
-                            <constraint firstItem="Fld-Lx-Au9" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" constant="9" id="QJU-0L-aOF"/>
-                            <constraint firstItem="Fld-Lx-Au9" firstAttribute="top" secondItem="rBe-EP-zS7" secondAttribute="top" constant="74" id="XJk-i8-HuQ"/>
+                            <constraint firstItem="Fld-Lx-Au9" firstAttribute="top" secondItem="Img-H3-Gwt" secondAttribute="bottom" id="TOh-2O-WTC"/>
                             <constraint firstItem="bKy-Lr-nEA" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="XpN-TA-7jL"/>
                             <constraint firstAttribute="trailing" secondItem="tTf-GN-4ol" secondAttribute="trailing" id="gwV-xE-bKN"/>
                             <constraint firstAttribute="trailing" secondItem="ALd-VT-sTW" secondAttribute="trailing" id="j3m-pW-4Ca"/>
                             <constraint firstItem="ALd-VT-sTW" firstAttribute="top" secondItem="rBe-EP-zS7" secondAttribute="top" id="lJj-h4-Sab"/>
                             <constraint firstItem="ALd-VT-sTW" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="o93-x9-qEO"/>
                             <constraint firstAttribute="bottom" secondItem="IHP-zn-yhW" secondAttribute="bottom" id="oz6-g7-eEW"/>
+                            <constraint firstItem="Fld-Lx-Au9" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="p5B-Wh-2XB"/>
                             <constraint firstItem="IHP-zn-yhW" firstAttribute="leading" secondItem="rBe-EP-zS7" secondAttribute="leading" id="pNu-bM-mo2"/>
                             <constraint firstItem="Rv6-qd-Mhu" firstAttribute="top" secondItem="rBe-EP-zS7" secondAttribute="top" id="qrU-J1-USw"/>
                             <constraint firstAttribute="bottom" secondItem="Rv6-qd-Mhu" secondAttribute="bottom" id="rvy-lr-al7"/>
@@ -590,22 +591,19 @@
         <image name="bt_add.png" width="44" height="44"/>
         <image name="bt_delete.png" width="31" height="31"/>
         <image name="bt_list.png" width="31" height="31"/>
-        <image name="bt_list.png" width="31" height="31"/>
-        <image name="bt_search.png" width="31" height="31"/>
         <image name="bt_search.png" width="31" height="31"/>
         <image name="btn_back.png" width="70" height="44"/>
         <image name="btn_clear.png" width="80" height="48"/>
         <image name="btn_list.png" width="70" height="44"/>
+        <image name="btn_map.png" width="70" height="36"/>
         <image name="btn_map1_off.png" width="160" height="51"/>
-        <image name="btn_map1_on.png" width="160" height="51"/>
         <image name="btn_map1_on.png" width="160" height="51"/>
         <image name="btn_map2_off.png" width="160" height="51"/>
         <image name="btn_map2_on.png" width="160" height="51"/>
-        <image name="btn_map2_on.png" width="160" height="51"/>
         <image name="btn_plus.png" width="70" height="44"/>
         <image name="btn_remove.png" width="40" height="40"/>
+        <image name="btn_sat.png" width="70" height="36"/>
         <image name="btn_search.png" width="70" height="44"/>
-        <image name="btn_switch.png" width="61" height="27"/>
         <image name="btn_switch.png" width="61" height="27"/>
         <image name="separator.png" width="320" height="20"/>
     </resources>

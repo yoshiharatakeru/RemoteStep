@@ -602,12 +602,12 @@
     if (_mapView1.mapType == MKMapTypeStandard) {
         _mapView1.mapType = MKMapTypeSatellite;
         _mapView2.mapType = MKMapTypeSatellite;
-        [bt setTitle:@"MAP" forState:UIControlStateNormal];
+        bt.selected = YES;
     
     }else{
         _mapView1.mapType = MKMapTypeStandard;
         _mapView2.mapType = MKMapTypeStandard;
-        [bt setTitle:@"SAT" forState:UIControlStateNormal];
+        bt.selected = NO;
     }
     
 }
