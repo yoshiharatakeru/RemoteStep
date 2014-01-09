@@ -57,6 +57,17 @@
     _mapView1.delegate = self;
     _mapView2.delegate = self;
     
+    MKCoordinateRegion region1 = _mapView1.region;
+    region1.center = CLLocationCoordinate2DMake(35.683, 139.772);
+    region1.span = MKCoordinateSpanMake(0.05, 0.05);
+    
+    MKCoordinateRegion region2 = _mapView2.region;
+    region2.center = CLLocationCoordinate2DMake(40.771, -73.974);
+    region2.span = MKCoordinateSpanMake(0.05, 0.05);
+    
+    [_mapView1 setRegion:region1];
+    [_mapView2 setRegion:region2];
+    
     //model
     _locationManager = [RSLocationManager new];
     
